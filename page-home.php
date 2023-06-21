@@ -182,10 +182,10 @@ the_post();
 					style="z-index:2; height:100%; "></div>
 				<div class="container ">
 					<div class="row">
-						<div class="d-flex col-12 col-lg-6 justify-content-center py-5 primary-gradient-lg"
+						<div class="d-flex col-12 col-lg-6 justify-content-center px-0 py-5 primary-gradient-lg"
 							style="z-index:100;">
 							<div class="col-10 d-flex ">
-								<p class="motto-sign col-2  px-3">
+								<p class="motto-sign col-2 p-0  px-md-3">
 									<img src="http://swiftbridge/wp-content/themes/swiftbridge/media/img/motto-sign.svg"
 										alt="motto sign" title="motto sign">
 								</p>
@@ -403,7 +403,7 @@ the_post();
 			</div>
 		</section>
 		<?php if (have_rows('industries_cards')): ?>
-			<section class="industries">
+			<section class="industries pb-5 pb-lg-5">
 				<div class="container">
 					<div class="row">
 						<div class="col-12 p-5">
@@ -412,10 +412,10 @@ the_post();
 							</p>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row cards d-none d-md-flex">
 						<?php while (have_rows('industries_cards')):
 							the_row(); ?>
-							<div class="col-12 col-md-6 col-lg-3 industries-card p-5 d-flex flex-column gap-3">
+							<div class="col-12 col-sm-6 col-lg-3 industries-card p-3 p-sm-5 d-flex flex-column gap-3">
 								<div class="d-flex justify-content-center">
 									<span style="font-size:40px"
 										class="<?php the_sub_field('industries_cards_card_icon_class'); ?>"></span>
@@ -425,6 +425,28 @@ the_post();
 								</p>
 							</div>
 						<?php endwhile; ?>
+					</div>
+					<div class="row cards d-flex d-md-none">
+						<section class="splide" aria-label="Splide partners carousel">
+							<div class="splide__track">
+								<ul class="splide__list">
+									<?php while (have_rows('industries_cards')):
+										the_row(); ?>
+										<li class="splide__slide">
+											<div class="col-12 col-sm-6 col-lg-3 industries-card p-3 p-sm-5 d-flex flex-column gap-3">
+												<div class="d-flex justify-content-center">
+													<span style="font-size:40px"
+														class="<?php the_sub_field('industries_cards_card_icon_class'); ?>"></span>
+												</div>
+												<p class="text-center">
+													<?php the_sub_field('industries_cards_card_title'); ?>
+												</p>
+											</div>
+										</li>
+									<?php endwhile; ?>
+								</ul>
+							</div>
+						</section>
 					</div>
 			</section>
 		<?php endif; ?>
@@ -437,6 +459,19 @@ the_post();
 			pagination: true,
 		}).mount();
 		new Splide('.partners-carousel .splide', {
+			arrows: false,
+			pagination: false,
+			type: 'loop',
+			drag: 'free',
+			focus: 'center',
+			perPage: 4,
+			gap: 20,
+			autoWidth: true,
+			autoScroll: {
+				speed: 0.5,
+			},
+		}).mount(window.splide.Extensions);
+		new Splide('.industries .splide', {
 			arrows: false,
 			pagination: false,
 			type: 'loop',
