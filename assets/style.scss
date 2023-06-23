@@ -6,12 +6,12 @@
     font-size: 18px;
 }
 
-.container-fluid{
-    padding-left:0 !important;
-    padding-right:0 !important;
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
-body{
+body {
     overflow-x: hidden;
 }
 
@@ -24,6 +24,10 @@ h6,
 .text-gray {
     font-family: 'kreon';
     color: #515151;
+}
+
+h2{
+    font-size:32px;
 }
 
 p,
@@ -50,9 +54,10 @@ nav#header {
         img {
             max-height: 64px;
             height: 100%;
+
             @media (max-width:992px) {
-                max-width:180px;
-                
+                max-width: 180px;
+
             }
         }
     }
@@ -318,15 +323,15 @@ p.motto-sign {
     &-contain {
         object-fit: contain;
         object-position: center;
-        max-width: 100%;
-        max-height: 100%;
+        width: 100%;
+        height: 100%;
     }
 
     &-cover {
         object-fit: cover;
         object-position: center;
-        max-width: 100%;
-        max-height: 100%;
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -471,7 +476,108 @@ footer {
 }
 
 
-.simple-banner{
-    width:100%;
-    height:342px;
+.simple-banner {
+    width: 100%;
+    height: 342px;
+}
+
+.img {
+    &-cover {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &-contain {
+        object-fit: contain;
+        object-position: contain;
+    }
+}
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: space-between;
+    & > *{
+        flex-grow: 1;
+    }
+    .news-card-img {
+        height: 210px;
+    }
+
+    .post-date {
+        color: $primary;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .title {
+        font-family: 'kreon';
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .excerpt {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .author {
+        font-size: 14px;
+        line-height: 21px;
+    }
+}
+
+ul.splide__pagination {
+    justify-content: center;
+    padding: 0;
+    bottom: -2em;
+
+    button.splide__pagination__page {
+        width: 15px;
+        height: 15px;
+        aspect-ratio: 1/1;
+        background-color: #adb5bd;
+        opacity: 1;
+        border-radius: 15px;
+        transition: .3s;
+
+        &.is-active {
+            background-color: $secondary;
+            width: 35px;
+            height: 15px;
+            aspect-ratio: 1/1;
+            opacity: 1;
+            transform: scale(1);
+            border-radius: 15px;
+            transition: .3s;
+        }
+    }
+
+    // @media (max-width:992px) {
+    //     justify-content: center;
+    // }
+
+}
+
+.bottom-bar {
+    height: 87px;
+    background-color: #F0F0F0;
+    font-size: 18px;
+    @media (max-width:992px) {
+        font-size: 12px;
+    }
+}
+
+.innhouse-logo {
+    width: 110px;
+    height: 20px;
+    @media (max-width:992px) {
+        width: 70px;
+        height: 15px;
+    }
+}
+
+.section-cooperation{
+    background-color:#F0F0F0 ;
 }

@@ -1,7 +1,7 @@
 <?php if (have_rows('partners_cards')): ?>
-    <section class="bg-white">
+    <section id="section-partners" class="bg-white">
         <div class="partners container py-3 py-lg-5 ">
-            <div class="row py-4">
+            <div class="row pb-4">
                 <div class="col-12">
                     <h2>
                         <?php the_field('partners_title'); ?>
@@ -29,4 +29,21 @@
             </div>
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            new Splide('.partners-carousel .splide', {
+			arrows: false,
+			pagination: false,
+			type: 'loop',
+			drag: 'free',
+			focus: 'center',
+			perPage: 4,
+			gap: 20,
+			autoWidth: true,
+			autoScroll: {
+				speed: 0.5,
+			},
+		}).mount(window.splide.Extensions);
+        })
+    </script>
 <?php endif; ?>

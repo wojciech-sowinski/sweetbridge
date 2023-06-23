@@ -141,7 +141,7 @@ the_post();
 	<?php get_template_part('template-parts/section', 'bg-cards'); ?>
 	<?php get_template_part('template-parts/section', 'experts'); ?>
 
-	<section class="services bg-white py-5">
+	<section class="services bg-white pt-5">
 		<div class="banner">
 			<?php $services_img = get_field('services_img'); ?>
 			<?php $size = 'full'; ?>
@@ -167,7 +167,7 @@ the_post();
 					<p class="motto text-white col-10">
 						<?php the_field('services_motto'); ?>
 					</p>
-					<p class="motto-sign col-2  px-3">
+					<p class="motto-sign col-2 ">
 						<img src="<?= get_theme_file_uri('/media/img/motto-sign.svg') ?>" alt="motto sign"
 							title="motto sign">
 					</p>
@@ -176,6 +176,8 @@ the_post();
 		</div>
 	</section>
 	<?php get_template_part( 'template-parts/section', 'industries' ) ?>
+	<?php get_template_part( 'template-parts/section', 'news-carousel' ) ?>
+
 <?php endif; ?>
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
@@ -183,19 +185,7 @@ the_post();
 			arrows: false,
 			pagination: true,
 		}).mount();
-		new Splide('.partners-carousel .splide', {
-			arrows: false,
-			pagination: false,
-			type: 'loop',
-			drag: 'free',
-			focus: 'center',
-			perPage: 4,
-			gap: 20,
-			autoWidth: true,
-			autoScroll: {
-				speed: 0.5,
-			},
-		}).mount(window.splide.Extensions);
+		
 		new Splide('.industries .splide', {
 			arrows: false,
 			pagination: false,
