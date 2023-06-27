@@ -2,10 +2,10 @@
 		<section class="industries pb-5 pb-lg-5">
 			<div class="container">
 				<div class="row">
-					<div class="col-12 p-5">
-						<p class="motto text-center text-gray">
+					<div class="col-12 col-md-8 mx-auto px-3 py-5 p-md-5">
+						<h2 class="motto text-center text-gray">
 							<?php the_field('industries'); ?>
-						</p>
+						</h2>
 					</div>
 				</div>
 				<div class="row cards d-none d-sm-flex">
@@ -23,7 +23,7 @@
 					<?php endwhile; ?>
 				</div>
 				<div class="row cards d-flex d-sm-none">
-					<section class="splide" aria-label="Splide partners carousel">
+					<section class="splide splide-industries" aria-label="Splide partners carousel">
 						<div class="splide__track">
 							<ul class="splide__list">
 								<?php while (have_rows('industries_cards')):
@@ -45,4 +45,21 @@
 					</section>
 				</div>
 		</section>
+		<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		new Splide('.splide.splide-industries', {
+			arrows: false,
+			pagination: false,
+			type: 'loop',
+			drag: 'free',
+			focus: 'center',
+			perPage: 4,
+			gap: 20,
+			autoWidth: true,
+			autoScroll: {
+				speed: 0.5,
+			},
+		}).mount(window.splide.Extensions);
+	})
+</script>
 	<?php endif; ?>

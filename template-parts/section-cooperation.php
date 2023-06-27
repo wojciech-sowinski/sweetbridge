@@ -1,4 +1,4 @@
-<section id="section-cooperation" class="section-cooperation pt-5 pb-6">
+<section id="section-cooperation" class="section-cooperation p-5 pt-lg-5 pb-lg-6">
     <div class="container d-flex flex-column gap-4">
         <div class="row">
             <div class="col-8 mx-auto">

@@ -185,20 +185,7 @@ the_post();
 			arrows: false,
 			pagination: true,
 		}).mount();
-		
-		new Splide('.industries .splide', {
-			arrows: false,
-			pagination: false,
-			type: 'loop',
-			drag: 'free',
-			focus: 'center',
-			perPage: 4,
-			gap: 20,
-			autoWidth: true,
-			autoScroll: {
-				speed: 0.5,
-			},
-		}).mount(window.splide.Extensions);
+	
 	})
 </script>
 

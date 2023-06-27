@@ -25,7 +25,7 @@
 					<div class="col-10 d-flex flex-column justify-content-center">
 						<div class="d-flex">
 							<p class="motto-sign col-2 p-0  px-md-3">
-								<img src="http://swiftbridge/wp-content/themes/swiftbridge/media/img/motto-sign.svg"
+								<img src="<?= get_theme_file_uri( '/media/img/motto-sign.svg');?>"
 									alt="motto sign" title="motto sign">
 							</p>
 							<p class="motto text-white px-3 px-xl-3 col-10">

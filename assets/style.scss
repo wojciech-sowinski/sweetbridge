@@ -28,6 +28,9 @@ h6,
 
 h2{
     font-size:32px;
+    @media (max-width:576px) {
+        font-size:26px;
+    }
 }
 
 p,
@@ -189,6 +192,7 @@ a {
     &-mini {
         width: 40px;
         height: 40px;
+        color:$primary;
     }
 }
 
@@ -479,6 +483,11 @@ footer {
 .simple-banner {
     width: 100%;
     height: 342px;
+    background-size: cover;
+    background-position: center;
+    @media (max-width:768px) {
+        height: 150px;
+    }
 }
 
 .img {
@@ -580,4 +589,19 @@ ul.splide__pagination {
 
 .section-cooperation{
     background-color:#F0F0F0 ;
+}
+
+.service-panel{
+    transition: .3s;
+    .icon{
+        transition: .3s;
+        color:$primary;
+    }
+    &:hover{
+        background-color: $primary;
+        color:$white;
+        .icon{
+            color:$white;
+        }
+    }
 }

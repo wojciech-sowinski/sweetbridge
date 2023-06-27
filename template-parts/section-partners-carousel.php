@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="row">
-                <section class="splide" aria-label="Splide partners carousel">
+                <section class="splide partners-carousel-splide" aria-label="Splide partners carousel">
                     <div class="splide__track">
                         <ul class="splide__list">
                             <?php while (have_rows('partners_carousel_btns')):
@@ -28,4 +28,21 @@
             </div>
         </div>
     </section>
+    <script>
+	document.addEventListener('DOMContentLoaded', () => {
+		new Splide('.splide.partners-carousel-splide', {
+			arrows: false,
+			pagination: false,
+			type: 'loop',
+			drag: 'free',
+			focus: 'center',
+			perPage: 4,
+			gap: 20,
+			autoWidth: true,
+			autoScroll: {
+				speed: 0.5,
+			},
+		}).mount(window.splide.Extensions);
+	})
+</script>
 <?php endif ?>
