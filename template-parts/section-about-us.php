@@ -1,5 +1,5 @@
 <section class="home-page-about-us">
-	<div class="container px-3 py-5 py-lg-5 d-flex flex-column gap-4 ">
+	<div class="container px-3 d-flex flex-column gap-4 pb-5">
 		<div class="row ">
 			<div class="col-12 col-lg-11 offset-0 offset-lg-1">
 				<h2>

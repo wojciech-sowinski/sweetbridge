@@ -9,7 +9,7 @@ get_header();
 
 the_post();
 ?>
-<section class="home_page_section_1 container-fluid position-relative px-0">
+<section class="home_page_section_1 container-fluid position-relative px-0 pt-0 pb-5">
 	<div class="content col-12 col-xxl-11 position-absolute offset-0 offset-xxl-1 h-100" style="z-index:1;background: linear-gradient(0deg, rgba(43, 64, 180,
 					<?php the_field('home_page_section_1_opacity'); ?>
 				), rgba(43, 64, 180,
@@ -70,8 +70,8 @@ the_post();
 	</div>
 </section>
 <?php if (have_rows('home_page_section_2_icon_cards')): ?>
-	<section class="home_page_section_2 container py-3 py-lg-5">
-		<div class="row">
+	<section class="home_page_section_2 container pt-0">
+		<div class="row step-gradient">
 
 			<?php while (have_rows('home_page_section_2_icon_cards')):
 				the_row(); ?>
@@ -79,19 +79,19 @@ the_post();
 				if (get_row_index() == 1) {
 					?>
 					<div class="col-12 col-lg-6 p-4 p-md-5 d-flex flex-column gap-4">
-						<div class="card-icon">
-							<?php $home_page_section_2_icon_cards_card_img = get_sub_field('home_page_section_2_icon_cards_card_img'); ?>
-							<?php $size = 'full'; ?>
-							<?php if ($home_page_section_2_icon_cards_card_img): ?>
-								<?php echo wp_get_attachment_image($home_page_section_2_icon_cards_card_img, $size); ?>
-							<?php endif; ?>
-						</div>
-						<p class="text-primary fw-bold">
-							<?php the_sub_field('tytul_kartyhome_page_section_2_icon_cards_card_title'); ?>
-						</p>
-						<p>
-							<?php the_sub_field('home_page_section_2_icon_cards_card_text'); ?>
-						</p>
+							<div class="card-icon">
+								<?php $home_page_section_2_icon_cards_card_img = get_sub_field('home_page_section_2_icon_cards_card_img'); ?>
+								<?php $size = 'full'; ?>
+								<?php if ($home_page_section_2_icon_cards_card_img): ?>
+									<?php echo wp_get_attachment_image($home_page_section_2_icon_cards_card_img, $size); ?>
+								<?php endif; ?>
+							</div>
+							<p class="text-primary fw-bold">
+								<?php the_sub_field('tytul_kartyhome_page_section_2_icon_cards_card_title'); ?>
+							</p>
+							<p>
+								<?php the_sub_field('home_page_section_2_icon_cards_card_text'); ?>
+							</p>
 					</div>
 					<?php
 				} ?>
@@ -133,10 +133,10 @@ the_post();
 	<?php get_template_part('template-parts/section', 'partners-carousel'); ?>
 	<?php get_template_part('template-parts/section', 'about-us'); ?>
 	<?php get_template_part('template-parts/section', 'partners-cards'); ?>
-	
-	
+
+
 	<!-- pocatek sekcji about -->
-	
+
 	<!-- koniec sekcji about -->
 	<?php get_template_part('template-parts/section', 'bg-cards'); ?>
 	<?php get_template_part('template-parts/section', 'experts'); ?>
@@ -175,8 +175,8 @@ the_post();
 			</div>
 		</div>
 	</section>
-	<?php get_template_part( 'template-parts/section', 'industries' ) ?>
-	<?php get_template_part( 'template-parts/section', 'news-carousel' ) ?>
+	<?php get_template_part('template-parts/section', 'industries') ?>
+	<?php get_template_part('template-parts/section', 'news-carousel') ?>
 
 <?php endif; ?>
 <script>
@@ -185,7 +185,7 @@ the_post();
 			arrows: false,
 			pagination: true,
 		}).mount();
-	
+
 	})
 </script>
 

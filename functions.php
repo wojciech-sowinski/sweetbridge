@@ -547,3 +547,8 @@ function testing_scripts_loader() {
 add_action( 'wp_enqueue_scripts', 'testing_scripts_loader' );
 
 
+add_filter("wpcf7_autop_or_not", "__return_false");
+
+
+
+

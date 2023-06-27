@@ -8,7 +8,7 @@ $query = new WP_Query($args);
 
 <?php
 if ($query->have_posts()) { ?>
-    <section class="news-carousel pt-5 pb-6" id="section-news-carousel" style="
+    <section class="news-carousel" id="section-news-carousel" style="
     background-image: -webkit-gradient(linear,left top,left bottom,from(hsla(0,0%,84%,.2)),to(hsla(0,0%,100%,0))),-webkit-gradient(linear,left top,left bottom,from(#fff),to(#fff));
     ">
         <div class="container">

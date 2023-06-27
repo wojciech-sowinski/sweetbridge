@@ -18,7 +18,7 @@ $search_enabled = get_theme_mod('search_enabled', '1'); // Get custom meta-value
 	</a>
 	<div id="wrapper">
 		<header>
-			<nav id="header" class=" py-5 navbar navbar-expand-lg <?php echo esc_attr($navbar_scheme);
+			<nav id="header" class="step-gradient py-1 py-lg-5 navbar navbar-expand-lg <?php echo esc_attr($navbar_scheme);
 			if (isset($navbar_position) && 'fixed_top' === $navbar_position): echo ' fixed-top';
 			elseif (isset($navbar_position) && 'fixed_bottom' === $navbar_position):
 				echo ' fixed-bottom';
@@ -55,7 +55,7 @@ $search_enabled = get_theme_mod('search_enabled', '1'); // Get custom meta-value
 								<span>UA</span>
 							</div>
 						</div>
-						<div id="navbar" class="collapse navbar-collapse justify-content-end">
+						<div id="navbar" class="collapse navbar-collapse justify-content-end ">
 						<?php
 						wp_nav_menu(
 							array(

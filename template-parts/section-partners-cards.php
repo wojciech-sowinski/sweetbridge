@@ -1,6 +1,6 @@
 <?php if (have_rows('partners_cards')): ?>
     <section id="section-partners" class="bg-white">
-        <div class="partners container py-3 py-lg-5 ">
+        <div class="partners container pb-3 pb-lg-5 ">
             <div class="row pb-4">
                 <div class="col-12">
                     <h2>
