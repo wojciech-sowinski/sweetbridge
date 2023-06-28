@@ -5,16 +5,7 @@
  * @author Wojciech Sowiński <wojciech.sowinski@innhouse.pl>
  */
 get_header();
-?>
 
-<section class="section-faq" id="section-faq">
-    <div class="container">
-        <div class="row">
-            
-        </div>
-    </div>
+get_template_part('template-parts/section', 'faq'); 
 
-</section>
-
-<?php
 get_footer();

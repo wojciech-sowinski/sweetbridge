@@ -2,9 +2,16 @@
     <div class="container">
         <div class="row py-3">
             <div class="col-12">
-                <h1>
-                    <?php the_field('or_services_title'); ?>
-                </h1>
+                <?php if (get_field( 'or_services_first' ) == 1): ?>
+                    <h1>
+                        <?php the_field('or_services_title'); ?>
+                    </h1>
+                <?php else: ?>
+                    <h2>
+                        <?php the_field('or_services_title'); ?>
+                    </h2>
+                <?php endif; ?>
+
             </div>
         </div>
 

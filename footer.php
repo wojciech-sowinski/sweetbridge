@@ -49,11 +49,12 @@
 						<div class="d-flex gap-4 align-items-center justify-content-center justify-content-sm-start">
 							<span style="font-size:30px" class="icon-telephone"></span>
 							<div class="d-flex flex-column gap-2">
-								<span class="kreon-font">
+								<span class="headline-font">
 									<?= __('Infolinia', 'swiftbridge') ?>
 								</span>
 								<span style="font-size:14px; font-weight:500">
-									<?php the_field('footer_contact_tel', 'option'); ?>
+									<a class="info-link" title="<?php the_field('footer_contact_tel', 'option'); ?>"
+										href="tel:<?php the_field('footer_contact_tel', 'option'); ?>"><?php the_field('footer_contact_tel', 'option'); ?></a>
 								</span>
 							</div>
 						</div>
@@ -62,11 +63,15 @@
 						<div class="d-flex gap-4 align-items-center justify-content-center justify-content-sm-start">
 							<span style="font-size:30px" class="icon-mail"></span>
 							<div class="d-flex flex-column gap-2">
-								<span class="kreon-font">
+								<span class="headline-font">
 									<?= __('Adres e-mail', 'swiftbridge') ?>
 								</span>
 								<span style="font-size:14px; font-weight:500">
-									<?php the_field('footer_contact_email', 'option'); ?>
+									<a class="info-link" 
+										title="<?php the_field('footer_contact_email', 'option'); ?>"
+										href="mailto:<?php the_field('footer_contact_email', 'option'); ?>">
+										<?php the_field('footer_contact_email', 'option'); ?>
+									</a>
 								</span>
 							</div>
 						</div>
@@ -81,7 +86,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="bottom-bar py-4">
+	<div class="bottom-bar py-3 d-flex align-items-center">
 		<div class="container ">
 			<div class="row d-flex flex-column flex-sm-row justify-content-sm-between gap-1">
 				<div class="w-auto d-flex justify-content-center justify-content-md-start gap-1 align-items-center">
@@ -95,7 +100,7 @@
 						<?php the_field('footer_contact__bottom_bar_text', 'option'); ?>
 					</span>
 				</div>
-				<div class="w-auto justify-content-center justify-content-md-start d-flex align-items-baseline gap-2">
+				<div class="w-auto justify-content-center justify-content-md-start d-flex align-items-baseline gap-1">
 					<span>
 						<?= __('Wykonanie', 'swiftbridge'); ?>:
 					</span>

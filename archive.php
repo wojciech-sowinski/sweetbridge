@@ -5,31 +5,29 @@
 
 get_header();
 
-if ( have_posts() ) :
-?>
-<header class="page-header">
-	<h1 class="page-title">
-		tooo ??
-		<?php
-			if ( is_day() ) :
-				printf( esc_html__( 'Daily Archives: %s', 'testing' ), get_the_date() );
-			elseif ( is_month() ) :
-				printf( esc_html__( 'Monthly Archives: %s', 'testing' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'testing' ) ) );
-			elseif ( is_year() ) :
-				printf( esc_html__( 'Yearly Archives: %s', 'testing' ), get_the_date( _x( 'Y', 'yearly archives date format', 'testing' ) ) );
-			else :
-				esc_html_e( 'Blog Archives', 'testing' );
-			endif;
-		?>
-	</h1>
-</header>
-<?php
-	get_template_part( 'archive', 'loop' );
-else :
-	// 404.
-	get_template_part( 'content', 'none' );
+if (have_posts()):
+	?>
+	<header class="page-header container py-5">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="page-title">
+					<?php
+					echo post_type_archive_title();
+					?>
+				</h1>
+			</div>
+		</div>
+	</header>
+	<?php
+
+	get_template_part('archive', 'loop');
+
+else:
+
+	get_template_part('content', 'none');
+
 endif;
 
-wp_reset_postdata(); // End of the loop.
+wp_reset_postdata();
 
 get_footer();

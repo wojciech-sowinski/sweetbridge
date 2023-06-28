@@ -44,14 +44,14 @@
 
                         ?>
                         <div>
-                            <p class="">
+                            <p class="m-0">
                                 <?php
                                 foreach ($firstPart as $word) {
                                     echo $word . ' ';
                                 }
                                 ?>
                             </p>
-                            <p class="expert-excerpt collapse " id="expertsCollapse<?= get_row_index(); ?>">
+                            <p class="expert-excerpt collapse m-0" id="expertsCollapse<?= get_row_index(); ?>">
                                 <?php
                                 foreach ($secondPart as $word) {
                                     echo $word . ' ';
@@ -62,10 +62,10 @@
                         <span class="expert-excerpt-btn collapsed" data-bs-toggle="collapse"
                             href="#expertsCollapse<?= get_row_index(); ?>" role="button" aria-expanded="false"
                             aria-controls="expertsCollapse<?= get_row_index(); ?>">
-                            <span class="show">
+                            <span class="show secondary-hover">
                                 <?= __('Zwiń', 'swiftbridge') ?>
                             </span>
-                            <span class="hide">
+                            <span class="hide secondary-hover">
                                 <?= __('Czytaj więcej', 'swiftbridge') ?>
                             </span>
                         </span>

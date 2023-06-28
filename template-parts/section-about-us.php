@@ -2,9 +2,15 @@
 	<div class="container px-3 d-flex flex-column gap-4 pb-5">
 		<div class="row ">
 			<div class="col-12 col-lg-11 offset-0 offset-lg-1">
-				<h2>
-					<?php the_field('home_page_about_us_title'); ?>
-				</h2>
+				<?php if (get_field('about_us_first') == 1): ?>
+					<h1>
+						<?php the_field('home_page_about_us_title'); ?>
+					</h1>
+				<?php else: ?>
+					<h2>
+						<?php the_field('home_page_about_us_title'); ?>
+					</h2>
+				<?php endif; ?>
 			</div>
 		</div>
 		<div class="row">
@@ -25,8 +31,8 @@
 					<div class="col-10 d-flex flex-column justify-content-center">
 						<div class="d-flex">
 							<p class="motto-sign col-2 p-0  px-md-3">
-								<img src="<?= get_theme_file_uri( '/media/img/motto-sign.svg');?>"
-									alt="motto sign" title="motto sign">
+								<img src="<?= get_theme_file_uri('/media/img/motto-sign.svg'); ?>" alt="motto sign"
+									title="motto sign">
 							</p>
 							<p class="motto text-white px-3 px-xl-3 col-10">
 								<?php the_field('home_page_about_us_motto'); ?>

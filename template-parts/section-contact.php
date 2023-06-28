@@ -3,9 +3,15 @@
         <div class="row">
             <?php if (have_rows('contact_cards')): ?>
                 <div class="col-12 col-lg-6">
-                    <h2 class="py-4">
-                        <?= __('Kontakt', 'swiftbridge') ?>
-                    </h2>
+                    <?php if (get_field('contact_cards_first') == 1): ?>
+                        <h1 class="py-4">
+                            <?= __('Kontakt', 'swiftbridge') ?>
+                        </h1>
+                    <?php else: ?>
+                        <h2 class="py-4">
+                            <?= __('Kontakt', 'swiftbridge') ?>
+                        </h2>
+                    <?php endif; ?>
                     <div class="contact-cards d-flex flex-wrap pb-1 pb-lg-5">
                         <?php while (have_rows('contact_cards')):
                             the_row(); ?>
@@ -122,6 +128,6 @@
 </section>
 <script>
     document.addEventListener('wpcf7mailsent', function (event) {
-        location =  '<?= get_field('contact_cards_redirect_url') ?>';
+        location = '<?= get_field('contact_cards_redirect_url') ?>';
     }, false);
 </script>

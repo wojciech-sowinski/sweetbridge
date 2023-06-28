@@ -3,7 +3,6 @@
  * The template for displaying content in the index.php template.
  */
 ?>
-test 1
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'col-sm-6' ); ?>>
 	<div class="card mb-4">
 		<header class="card-body">

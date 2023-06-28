@@ -550,5 +550,24 @@ add_action( 'wp_enqueue_scripts', 'testing_scripts_loader' );
 add_filter("wpcf7_autop_or_not", "__return_false");
 
 
+function addCptToCategoryQuery($query) {
+    if ( ! is_admin() && $query->is_main_query() ) {
+        if ( $query->is_category() ) { // Sprawdza, czy bieżąca strona jest kategorią
+            $typy_postow = $query->get('post_type');
+            
+            if ( empty($typy_postow) ) {
+                $typy_postow = array('post', 'news'); // Dodaje typ 'news' do zapytania
+            } else {
+                $typy_postow[] = 'news'; // Dodaje 'news' do istniejących typów postów w zapytaniu
+            }
+            
+            $query->set('post_type', $typy_postow);
+        }
+    }
+}
+add_action('pre_get_posts', 'addCptToCategoryQuery');
 
-
+function disable_posts_menu() {
+    remove_menu_page('edit.php');
+}
+add_action('admin_menu', 'disable_posts_menu');

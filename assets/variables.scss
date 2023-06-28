@@ -82,11 +82,11 @@ $spacer: 1rem;
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?7eraan');
-  src:  url('fonts/icomoon.eot?7eraan#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?7eraan') format('truetype'),
-    url('fonts/icomoon.woff?7eraan') format('woff'),
-    url('fonts/icomoon.svg?7eraan#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?w1el6x');
+  src:  url('fonts/icomoon.eot?w1el6x#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?w1el6x') format('truetype'),
+    url('fonts/icomoon.woff?w1el6x') format('woff'),
+    url('fonts/icomoon.svg?w1el6x#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -107,6 +107,12 @@ $spacer: 1rem;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-search:before {
+  content: "\e922";
+}
+.icon-arrow-down:before {
+  content: "\e921";
+}
 .icon-accept-1:before {
   content: "\e920";
 }

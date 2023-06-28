@@ -42,7 +42,7 @@ the_post();
 				<div class="links d-flex gap-2 w-auto">
 					<?php while (have_rows('home_page_section_1_links')):
 						the_row(); ?>
-						<a class="text-light fw-semibold" title="<?php the_sub_field('home_page_section_1_links_link_text'); ?>"
+						<a class="text-light fw-semibold secondary-hover " title="<?php the_sub_field('home_page_section_1_links_link_text'); ?>"
 							href="<?php the_sub_field('home_page_section_1_links_link_url'); ?>">
 							<?php the_sub_field('home_page_section_1_links_link_text'); ?>
 						</a>
