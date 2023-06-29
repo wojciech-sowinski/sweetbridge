@@ -16,14 +16,14 @@ defined( 'ABSPATH' ) || exit;
  *
  * @return void
  */
-function testing_customize( $wp_customize ) {
+function swiftbridge_customize( $wp_customize ) {
 	/**
 	 * Initialize sections
 	 */
 	$wp_customize->add_section(
 		'theme_header_section',
 		array(
-			'title'    => __( 'Header', 'testing' ),
+			'title'    => __( 'Header', 'swiftbridge' ),
 			'priority' => 1000,
 		)
 	);
@@ -44,8 +44,8 @@ function testing_customize( $wp_customize ) {
 			$wp_customize,
 			'header_logo',
 			array(
-				'label'       => __( 'Upload Header Logo', 'testing' ),
-				'description' => __( 'Height: &gt;80px', 'testing' ),
+				'label'       => __( 'Upload Header Logo', 'swiftbridge' ),
+				'description' => __( 'Height: &gt;80px', 'swiftbridge' ),
 				'section'     => 'theme_header_section',
 				'settings'    => 'header_logo',
 				'priority'    => 1,
@@ -65,12 +65,12 @@ function testing_customize( $wp_customize ) {
 		'navbar_scheme',
 		array(
 			'type'     => 'radio',
-			'label'    => __( 'Navbar Scheme', 'testing' ),
+			'label'    => __( 'Navbar Scheme', 'swiftbridge' ),
 			'section'  => 'theme_header_section',
 			'choices'  => array(
-				'navbar-light bg-light'  => __( 'Default', 'testing' ),
-				'navbar-dark bg-dark'    => __( 'Dark', 'testing' ),
-				'navbar-dark bg-primary' => __( 'Primary', 'testing' ),
+				'navbar-light bg-light'  => __( 'Default', 'swiftbridge' ),
+				'navbar-dark bg-dark'    => __( 'Dark', 'swiftbridge' ),
+				'navbar-dark bg-primary' => __( 'Primary', 'swiftbridge' ),
 			),
 			'settings' => 'navbar_scheme',
 			'priority' => 1,
@@ -89,12 +89,12 @@ function testing_customize( $wp_customize ) {
 		'navbar_position',
 		array(
 			'type'     => 'radio',
-			'label'    => __( 'Navbar', 'testing' ),
+			'label'    => __( 'Navbar', 'swiftbridge' ),
 			'section'  => 'theme_header_section',
 			'choices'  => array(
-				'static'       => __( 'Static', 'testing' ),
-				'fixed_top'    => __( 'Fixed to top', 'testing' ),
-				'fixed_bottom' => __( 'Fixed to bottom', 'testing' ),
+				'static'       => __( 'Static', 'swiftbridge' ),
+				'fixed_top'    => __( 'Fixed to top', 'swiftbridge' ),
+				'fixed_bottom' => __( 'Fixed to bottom', 'swiftbridge' ),
 			),
 			'settings' => 'navbar_position',
 			'priority' => 2,
@@ -113,21 +113,21 @@ function testing_customize( $wp_customize ) {
 		'search_enabled',
 		array(
 			'type'     => 'checkbox',
-			'label'    => __( 'Show Searchfield?', 'testing' ),
+			'label'    => __( 'Show Searchfield?', 'swiftbridge' ),
 			'section'  => 'theme_header_section',
 			'settings' => 'search_enabled',
 			'priority' => 3,
 		)
 	);
 }
-add_action( 'customize_register', 'testing_customize' );
+add_action( 'customize_register', 'swiftbridge_customize' );
 
 /**
  * Bind JS handlers to make Theme Customizer preview reload changes asynchronously.
  *
  * @return void
  */
-function testing_customize_preview_js() {
+function swiftbridge_customize_preview_js() {
 	wp_enqueue_script( 'customizer', get_template_directory_uri() . '/inc/customizer.js', array( 'jquery' ), null, true );
 }
-add_action( 'customize_preview_init', 'testing_customize_preview_js' );
+add_action( 'customize_preview_init', 'swiftbridge_customize_preview_js' );

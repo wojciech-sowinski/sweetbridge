@@ -1,5 +1,4 @@
 <div class="d-flex flex-column gap-4 search-column py-5 px-4">
-
     <div>
         <?php get_search_form(); ?>
     </div>
@@ -45,7 +44,6 @@
         foreach ($tags as $tag) {
             echo $tag;
         }
-
         ?>
     </div>
 </div>

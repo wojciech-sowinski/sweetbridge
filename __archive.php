@@ -12,13 +12,13 @@ if ( have_posts() ) :
 		tooo ??
 		<?php
 			if ( is_day() ) :
-				printf( esc_html__( 'Daily Archives: %s', 'testing' ), get_the_date() );
+				printf( esc_html__( 'Daily Archives: %s', 'swiftbridge' ), get_the_date() );
 			elseif ( is_month() ) :
-				printf( esc_html__( 'Monthly Archives: %s', 'testing' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'testing' ) ) );
+				printf( esc_html__( 'Monthly Archives: %s', 'swiftbridge' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'swiftbridge' ) ) );
 			elseif ( is_year() ) :
-				printf( esc_html__( 'Yearly Archives: %s', 'testing' ), get_the_date( _x( 'Y', 'yearly archives date format', 'testing' ) ) );
+				printf( esc_html__( 'Yearly Archives: %s', 'swiftbridge' ), get_the_date( _x( 'Y', 'yearly archives date format', 'swiftbridge' ) ) );
 			else :
-				esc_html_e( 'Blog Archives', 'testing' );
+				esc_html_e( 'Blog Archives', 'swiftbridge' );
 			endif;
 		?>
 	</h1>

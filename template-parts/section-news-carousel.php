@@ -14,8 +14,16 @@ if ($query->have_posts()) { ?>
         <div class="container">
             <div class="row py-4">
                 <div class="col-12">
-                    <h2>
-                        <?= __('Aktualności', 'swiftbridge'); ?>
+                    <h2 class="d-flex justify-content-between">
+                        <span>
+                            <?= __('Aktualności', 'swiftbridge'); ?>
+                        </span>
+                        <?php
+                        $news_archive_link = get_post_type_archive_link('news');
+                        if ($news_archive_link) {
+                            echo '<a title="News" href="' . esc_url($news_archive_link) . '"><i class="icon-arrow-right"></i></a>';
+                        }
+                        ?>
                     </h2>
                 </div>
             </div>

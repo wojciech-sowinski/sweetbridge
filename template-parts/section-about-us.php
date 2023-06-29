@@ -1,5 +1,5 @@
 <section class="home-page-about-us">
-	<div class="container px-3 d-flex flex-column gap-4 pb-5">
+	<div class="container px-3 d-flex flex-column gap-2 pb-5">
 		<div class="row ">
 			<div class="col-12 col-lg-11 offset-0 offset-lg-1">
 				<?php if (get_field('about_us_first') == 1): ?>
@@ -41,7 +41,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-lg-6 py-3 py-lg-0">
-					<p class="py-3 px-0 px-lg-5 py-lg-3 fw-semibold">
+					<p class="py-3 px-0 px-lg-5 py-lg-3 fw-semibold headline-font">
 						<?php the_field('home_page_about_us_cards_section_title'); ?>
 					</p>
 					<?php if (have_rows('home_page_about_us_cards')): ?>
@@ -49,7 +49,7 @@
 							<?php while (have_rows('home_page_about_us_cards')):
 								the_row(); ?>
 								<div
-									class="col-12 col-sm-8 mx-auto col-md-6 px-0 py-3 px-lg-3 py-lg-3 px-xl-5 d-flex flex-column align-items-center align-items-md-start gap-3">
+									class="col-12 col-sm-8 mx-auto col-md-6 pe-1 ps-0 py-3 ps-lg-3 py-lg-3 ps-xl-5 d-flex flex-column align-items-center align-items-md-start gap-1">
 									<div class="card-icon-mini d-flex ">
 										<?php $home_page_about_us_cards_card_img = get_sub_field('home_page_about_us_cards_card_img'); ?>
 										<?php $size = 'full'; ?>
@@ -57,7 +57,7 @@
 											<?php echo wp_get_attachment_image($home_page_about_us_cards_card_img, $size); ?>
 										<?php endif; ?>
 									</div>
-									<p class="text-center text-md-start" style="font-size:14px">
+									<p class="text-center text-md-start about-us-card" style="font-size:14px; ">
 										<?php the_sub_field('home_page_about_us_cards_card_text'); ?>
 									</p>
 								</div>
@@ -65,7 +65,7 @@
 						</div>
 					<?php endif; ?>
 					<?php if (have_rows('home_page_about_us_btns')): ?>
-						<div class="px-5 py-3 d-flex flex-wrap justify-content-center justify-content-lg-start">
+						<div class="px-5 py-1 d-flex flex-wrap justify-content-center justify-content-lg-start">
 							<?php while (have_rows('home_page_about_us_btns')):
 								the_row(); ?>
 								<a class="btn btn-primary" title="<?php the_sub_field('home_page_about_us_btns_btn_text'); ?>"

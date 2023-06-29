@@ -18,7 +18,7 @@ if ( have_posts() ) :
 	<header class="page-header">
 		<h1 class="page-title author">
 			<?php
-				printf( esc_html__( 'Author Archives: %s', 'testing' ), get_the_author() );
+				printf( esc_html__( 'Author Archives: %s', 'swiftbridge' ), get_the_author() );
 			?>
 		</h1>
 	</header>

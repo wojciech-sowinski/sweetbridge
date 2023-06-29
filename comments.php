@@ -18,7 +18,7 @@ if ( post_password_required() ) {
 	?>
 		<h2 id="comments-title">
 			<?php
-				esc_html_e( 'No Comments yet!', 'testing' );
+				esc_html_e( 'No Comments yet!', 'swiftbridge' );
 			?>
 		</h2>
 	<?php
@@ -30,7 +30,7 @@ if ( post_password_required() ) {
 			<?php
 				$comments_number = get_comments_number();
 				if ( '1' === $comments_number ) {
-					printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'testing' ), get_the_title() );
+					printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'swiftbridge' ), get_the_title() );
 				} else {
 					printf(
 						/* translators: 1: number of comments, 2: post title */
@@ -39,7 +39,7 @@ if ( post_password_required() ) {
 							'%1$s Replies to &ldquo;%2$s&rdquo;',
 							$comments_number,
 							'comments title',
-							'testing'
+							'swiftbridge'
 						),
 						number_format_i18n( $comments_number ),
 						get_the_title()
@@ -51,9 +51,9 @@ if ( post_password_required() ) {
 			if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 		?>
 		<nav id="comment-nav-above">
-			<h1 class="assistive-text"><?php esc_html_e( 'Comment navigation', 'testing' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'testing' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'testing' ) ); ?></div>
+			<h1 class="assistive-text"><?php esc_html_e( 'Comment navigation', 'swiftbridge' ); ?></h1>
+			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'swiftbridge' ) ); ?></div>
+			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'swiftbridge' ) ); ?></div>
 		</nav>
 		<?php
 			endif;
@@ -67,16 +67,16 @@ if ( post_password_required() ) {
 				 * define theme_comment() and that will be used instead.
 				 * See theme_comment() in my-theme/functions.php for more.
 				 */
-				wp_list_comments( array( 'callback' => 'testing_comment' ) );
+				wp_list_comments( array( 'callback' => 'swiftbridge_comment' ) );
 			?>
 		</ol>
 		<?php
 			if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 		?>
 		<nav id="comment-nav-below">
-			<h1 class="assistive-text"><?php esc_html_e( 'Comment navigation', 'testing' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'testing' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'testing' ) ); ?></div>
+			<h1 class="assistive-text"><?php esc_html_e( 'Comment navigation', 'swiftbridge' ); ?></h1>
+			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'swiftbridge' ) ); ?></div>
+			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'swiftbridge' ) ); ?></div>
 		</nav>
 		<?php
 			endif;
@@ -87,7 +87,7 @@ if ( post_password_required() ) {
 		 */
 		elseif ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<h2 id="comments-title" class="nocomments"><?php esc_html_e( 'Comments are closed.', 'testing' ); ?></h2>
+		<h2 id="comments-title" class="nocomments"><?php esc_html_e( 'Comments are closed.', 'swiftbridge' ); ?></h2>
 	<?php
 		endif;
 

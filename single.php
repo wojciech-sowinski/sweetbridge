@@ -2,58 +2,58 @@
 /**
  * The Template for displaying all single posts.
  */
-
 get_header();
-
-if ( have_posts() ) :
-	while ( have_posts() ) :
-		the_post();
-
-		get_template_part( 'content', 'single' );
-
-		// If comments are open or we have at least one comment, load up the comment template.
-		if ( comments_open() || get_comments_number() ) :
-			comments_template();
-		endif;
-	endwhile;
-endif;
-
-wp_reset_postdata();
-
-$count_posts = wp_count_posts();
-
-if ( $count_posts->publish > '1' ) :
-	$next_post = get_next_post();
-	$prev_post = get_previous_post();
+the_post();
 ?>
-<hr class="mt-5">
-<div class="post-navigation d-flex justify-content-between">
-	<?php
-		if ( $prev_post ) {
-			$prev_title = get_the_title( $prev_post->ID );
-	?>
-		<div class="pr-3">
-			<a class="previous-post btn btn-lg btn-outline-secondary" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>" title="<?php echo esc_attr( $prev_title ); ?>">
-				<span class="arrow">&larr;</span>
-				<span class="title"><?php echo wp_kses_post( $prev_title ); ?></span>
-			</a>
-		</div>
-	<?php
-		}
-		if ( $next_post ) {
-			$next_title = get_the_title( $next_post->ID );
-	?>
-		<div class="pl-3">
-			<a class="next-post btn btn-lg btn-outline-secondary" href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>" title="<?php echo esc_attr( $next_title ); ?>">
-				<span class="title"><?php echo wp_kses_post( $next_title ); ?></span>
-				<span class="arrow">&rarr;</span>
-			</a>
-		</div>
-	<?php
-		}
-	?>
-</div><!-- /.post-navigation -->
-<?php
-endif;
+<section class="container ">
+	<div class="row">
+		<div class="col-12 col-lg-8 mx-auto d-flex flex-column gap-4">
+			<div class="row">
+				<div class="col-12">
+					<h1>
+						<?php
+						the_title();
+						?>
+					</h1>
+				</div>
+			</div>
+			<div class="d-flex gap-3">
+				<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank"
+					rel="noopener noreferrer"><span class="icon-facebook social-icon-primary"></span></a>
+				<a href="https://www.linkedin.com/shareArticle?url=<?php the_permalink(); ?>" target="_blank"
+					rel="noopener noreferrer"><span class="icon-in social-icon-primary"></span></a>
+				<?php
+				$date = get_the_date('j F Y');
+				$formatted_date = date_i18n('j F Y', strtotime($date));
+				echo '<span class="post-date ms-5">' . $formatted_date . '</span>';
+				?>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<?php
+					the_post_thumbnail('full', ['class' => 'img-cover simple-banner'])
+						?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 pb-4">
+					<?php
+					the_content()
+						?>
+				</div>
+			</div>
 
+		</div>
+	</div>
+</section>
+<section class="container pt-0">
+	<div class="row">
+		<div class="col-12 col-lg-8 mx-auto">
+			<?php get_template_part('template-parts/section', 'news-carousel') ?>
+		</div>
+	</div>
+</section>
+
+
+<?php
 get_footer();

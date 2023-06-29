@@ -12,7 +12,7 @@
 			if ( 'post' === get_post_type() ) :
 		?>
 			<div class="entry-meta">
-				<?php testing_article_posted_on(); ?>
+				<?php swiftbridge_article_posted_on(); ?>
 			</div><!-- /.entry-meta -->
 		<?php
 			endif;
@@ -26,28 +26,28 @@
 
 			the_content();
 
-			wp_link_pages( array( 'before' => '<div class="page-link"><span>' . esc_html__( 'Pages:', 'testing' ) . '</span>', 'after' => '</div>' ) );
+			wp_link_pages( array( 'before' => '<div class="page-link"><span>' . esc_html__( 'Pages:', 'swiftbridge' ) . '</span>', 'after' => '</div>' ) );
 		?>
 	</div><!-- /.entry-content -->
 
 	<?php
-		edit_post_link( __( 'Edit', 'testing' ), '<span class="edit-link">', '</span>' );
+		edit_post_link( __( 'Edit', 'swiftbridge' ), '<span class="edit-link">', '</span>' );
 	?>
 
 	<footer class="entry-meta">
 		<hr>
 		<?php
 			/* translators: used between list items, there is a space after the comma */
-			$category_list = get_the_category_list( __( ', ', 'testing' ) );
+			$category_list = get_the_category_list( __( ', ', 'swiftbridge' ) );
 
 			/* translators: used between list items, there is a space after the comma */
-			$tag_list = get_the_tag_list( '', __( ', ', 'testing' ) );
+			$tag_list = get_the_tag_list( '', __( ', ', 'swiftbridge' ) );
 			if ( '' != $tag_list ) :
-				$utility_text = __( 'This entry was posted in %1$s and tagged %2$s by <a href="%6$s">%5$s</a>. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'testing' );
+				$utility_text = __( 'This entry was posted in %1$s and tagged %2$s by <a href="%6$s">%5$s</a>. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'swiftbridge' );
 			elseif ( '' != $category_list ) :
-				$utility_text = __( 'This entry was posted in %1$s by <a href="%6$s">%5$s</a>. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'testing' );
+				$utility_text = __( 'This entry was posted in %1$s by <a href="%6$s">%5$s</a>. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'swiftbridge' );
 			else :
-				$utility_text = __( 'This entry was posted by <a href="%6$s">%5$s</a>. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'testing' );
+				$utility_text = __( 'This entry was posted by <a href="%6$s">%5$s</a>. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'swiftbridge' );
 			endif;
 
 			printf(

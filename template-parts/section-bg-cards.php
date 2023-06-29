@@ -1,5 +1,5 @@
 <?php if (have_rows('cards_bg_cards')): ?>
-	<section class="cards-bg pb-5" style="
+	<section class="cards-bg py-6" style="
 			overflow-x: hidden;
 				background-image: linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,1)),
 								url('<?php if (get_field('cards_bg_cards_bg')): ?>

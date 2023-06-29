@@ -7,18 +7,18 @@
 	<div class="card mb-4">
 		<header class="card-body">
 			<h2 class="card-title">
-				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'testing' ), the_title_attribute( array( 'echo' => false ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'swiftbridge' ), the_title_attribute( array( 'echo' => false ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 			</h2>
 			<?php
 				if ( 'post' === get_post_type() ) :
 			?>
 				<div class="card-text entry-meta">
 					<?php
-						testing_article_posted_on();
+						swiftbridge_article_posted_on();
 
 						$num_comments = get_comments_number();
 						if ( comments_open() && $num_comments >= 1 ) :
-							echo ' <a href="' . esc_url( get_comments_link() ) . '" class="badge badge-pill bg-secondary float-end" title="' . esc_attr( sprintf( _n( '%s Comment', '%s Comments', $num_comments, 'testing' ), $num_comments ) ) . '">' . $num_comments . '</a>';
+							echo ' <a href="' . esc_url( get_comments_link() ) . '" class="badge badge-pill bg-secondary float-end" title="' . esc_attr( sprintf( _n( '%s Comment', '%s Comments', $num_comments, 'swiftbridge' ), $num_comments ) ) . '">' . $num_comments . '</a>';
 						endif;
 					?>
 				</div><!-- /.entry-meta -->
@@ -39,10 +39,10 @@
 						the_content();
 					}
 				?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . esc_html__( 'Pages:', 'testing' ) . '</span>', 'after' => '</div>' ) ); ?>
+				<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . esc_html__( 'Pages:', 'swiftbridge' ) . '</span>', 'after' => '</div>' ) ); ?>
 			</div><!-- /.card-text -->
 			<footer class="entry-meta">
-				<a href="<?php the_permalink(); ?>" class="btn btn-outline-secondary"><?php esc_html_e( 'more', 'testing' ); ?></a>
+				<a href="<?php the_permalink(); ?>" class="btn btn-outline-secondary"><?php esc_html_e( 'more', 'swiftbridge' ); ?></a>
 			</footer><!-- /.entry-meta -->
 		</div><!-- /.card-body -->
 	</div><!-- /.col -->

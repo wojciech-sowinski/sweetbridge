@@ -9,10 +9,40 @@ get_header();
 
 $search_enabled = get_theme_mod( 'search_enabled', '1' ); // Get custom meta-value.
 ?>
-<div id="post-0" class="content error404 not-found">
-	<h1 class="entry-title"><?php esc_html_e( 'Not found', 'testing' ); ?></h1>
-	<div class="entry-content">
-		<p><?php esc_html_e( 'It looks like nothing was found at this location.', 'testing' ); ?></p>
+<style>
+
+.content.error404::before{
+	content:'404';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 25em;
+	text-align: center;
+	z-index: -1;
+	opacity: .2;
+	font-weight:700;
+
+}
+
+@media (max-width:792px){
+	.content.error404::before{
+		font-size: 5em;
+	}
+}
+
+.content.error404{
+	overflow: hidden;
+}
+
+
+</style>
+<div id="post-0" class="content error404 not-found d-flex flex-column justify-content-center align-content-center gap-3 position-relative" style="min-height:50vh;">
+
+	<div class="text-center">
+	<h1 class="entry-title fw-bold my-3"><?php esc_html_e( 'Not found', 'swiftbridge' ); ?></h1>
+	<div class="entry-content my-3" style="min-heigt:100vh;">
+		<p><?php esc_html_e( 'It looks like nothing was found at this location.', 'swiftbridge' ); ?></p>
 		<div>
 			<?php
 				if ( '1' === $search_enabled ) :
@@ -21,6 +51,13 @@ $search_enabled = get_theme_mod( 'search_enabled', '1' ); // Get custom meta-val
 			?>
 		</div>
 	</div><!-- /.entry-content -->
+	<div class=" my-3">
+		<a href="<?= esc_url(site_url()); ?>" class="btn btn-primary">
+			<?= __('Return to home page','swiftbridge') ?>
+		</a>
+	</div>
+	</div>
+
 </div><!-- /#post-0 -->
 <?php
 get_footer();

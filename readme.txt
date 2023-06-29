@@ -1,4 +1,4 @@
-=== testing ===
+=== swiftbridge ===
 Contributors: them.es
 Tags: light, dark, responsive-layout, featured-images, flexible-header, microformats, post-formats, rtl-language-support, theme-options, translation-ready, accessibility-ready
 Stable tag: 3.4

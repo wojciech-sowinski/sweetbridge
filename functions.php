@@ -10,7 +10,7 @@ if ( is_readable( $theme_customizer ) ) {
 	require_once $theme_customizer;
 }
 
-if ( ! function_exists( 'testing_setup_theme' ) ) {
+if ( ! function_exists( 'swiftbridge_setup_theme' ) ) {
 	/**
 	 * General Theme Settings.
 	 *
@@ -18,9 +18,9 @@ if ( ! function_exists( 'testing_setup_theme' ) ) {
 	 *
 	 * @return void
 	 */
-	function testing_setup_theme() {
+	function swiftbridge_setup_theme() {
 		// Make theme available for translation: Translations can be filed in the /languages/ directory.
-		load_theme_textdomain( 'testing', __DIR__ . '/languages' );
+		load_theme_textdomain( 'swiftbridge', __DIR__ . '/languages' );
 
 		/**
 		 * Set the content width based on the theme's design and stylesheet.
@@ -67,7 +67,7 @@ if ( ! function_exists( 'testing_setup_theme' ) ) {
 		// Custom CSS styles of WorPress gallery.
 		add_filter( 'use_default_gallery_style', '__return_false' );
 	}
-	add_action( 'after_setup_theme', 'testing_setup_theme' );
+	add_action( 'after_setup_theme', 'swiftbridge_setup_theme' );
 
 	// Disable Block Directory: https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/filters/editor-filters.md#block-directory
 	remove_action( 'enqueue_block_editor_assets', 'wp_enqueue_editor_block_directory_assets' );
@@ -89,7 +89,7 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 	}
 }
 
-if ( ! function_exists( 'testing_add_user_fields' ) ) {
+if ( ! function_exists( 'swiftbridge_add_user_fields' ) ) {
 	/**
 	 * Add new User fields to Userprofile:
 	 * get_user_meta( $user->ID, 'facebook_profile', true );
@@ -100,7 +100,7 @@ if ( ! function_exists( 'testing_add_user_fields' ) ) {
 	 *
 	 * @return array
 	 */
-	function testing_add_user_fields( $fields ) {
+	function swiftbridge_add_user_fields( $fields ) {
 		// Add new fields.
 		$fields['facebook_profile'] = 'Facebook URL';
 		$fields['twitter_profile']  = 'Twitter URL';
@@ -110,7 +110,7 @@ if ( ! function_exists( 'testing_add_user_fields' ) ) {
 
 		return $fields;
 	}
-	add_filter( 'user_contactmethods', 'testing_add_user_fields' );
+	add_filter( 'user_contactmethods', 'swiftbridge_add_user_fields' );
 }
 
 /**
@@ -138,7 +138,7 @@ function is_blog() {
  *
  * @return bool
  */
-function testing_filter_media_comment_status( $open, $post_id = null ) {
+function swiftbridge_filter_media_comment_status( $open, $post_id = null ) {
 	$media_post = get_post( $post_id );
 
 	if ( 'attachment' === $media_post->post_type ) {
@@ -147,7 +147,7 @@ function testing_filter_media_comment_status( $open, $post_id = null ) {
 
 	return $open;
 }
-add_filter( 'comments_open', 'testing_filter_media_comment_status', 10, 2 );
+add_filter( 'comments_open', 'swiftbridge_filter_media_comment_status', 10, 2 );
 
 /**
  * Style Edit buttons as badges: https://getbootstrap.com/docs/5.0/components/badge
@@ -158,10 +158,10 @@ add_filter( 'comments_open', 'testing_filter_media_comment_status', 10, 2 );
  *
  * @return string
  */
-function testing_custom_edit_post_link( $link ) {
+function swiftbridge_custom_edit_post_link( $link ) {
 	return str_replace( 'class="post-edit-link"', 'class="post-edit-link badge bg-secondary"', $link );
 }
-add_filter( 'edit_post_link', 'testing_custom_edit_post_link' );
+add_filter( 'edit_post_link', 'swiftbridge_custom_edit_post_link' );
 
 /**
  * Style Edit buttons as badges: https://getbootstrap.com/docs/5.0/components/badge
@@ -170,10 +170,10 @@ add_filter( 'edit_post_link', 'testing_custom_edit_post_link' );
  *
  * @param string $link Comment Edit Link.
  */
-function testing_custom_edit_comment_link( $link ) {
+function swiftbridge_custom_edit_comment_link( $link ) {
 	return str_replace( 'class="comment-edit-link"', 'class="comment-edit-link badge bg-secondary"', $link );
 }
-add_filter( 'edit_comment_link', 'testing_custom_edit_comment_link' );
+add_filter( 'edit_comment_link', 'swiftbridge_custom_edit_comment_link' );
 
 /**
  * Responsive oEmbed filter: https://getbootstrap.com/docs/5.0/helpers/ratio
@@ -184,12 +184,12 @@ add_filter( 'edit_comment_link', 'testing_custom_edit_comment_link' );
  *
  * @return string
  */
-function testing_oembed_filter( $html ) {
+function swiftbridge_oembed_filter( $html ) {
 	return '<div class="ratio ratio-16x9">' . $html . '</div>';
 }
-add_filter( 'embed_oembed_html', 'testing_oembed_filter', 10 );
+add_filter( 'embed_oembed_html', 'swiftbridge_oembed_filter', 10 );
 
-if ( ! function_exists( 'testing_content_nav' ) ) {
+if ( ! function_exists( 'swiftbridge_content_nav' ) ) {
 	/**
 	 * Display a navigation to next/previous pages when applicable.
 	 *
@@ -197,14 +197,14 @@ if ( ! function_exists( 'testing_content_nav' ) ) {
 	 *
 	 * @param string $nav_id Navigation ID.
 	 */
-	function testing_content_nav( $nav_id ) {
+	function swiftbridge_content_nav( $nav_id ) {
 		global $wp_query;
 
 		if ( $wp_query->max_num_pages > 1 ) {
 	?>
 			<div id="<?php echo esc_attr( $nav_id ); ?>" class="d-flex mb-4 justify-content-between">
-				<div><?php next_posts_link( '<span aria-hidden="true">&larr;</span> ' . esc_html__( 'Older posts', 'testing' ) ); ?></div>
-				<div><?php previous_posts_link( esc_html__( 'Newer posts', 'testing' ) . ' <span aria-hidden="true">&rarr;</span>' ); ?></div>
+				<div><?php next_posts_link( '<span aria-hidden="true">&larr;</span> ' . esc_html__( 'Older posts', 'swiftbridge' ) ); ?></div>
+				<div><?php previous_posts_link( esc_html__( 'Newer posts', 'swiftbridge' ) . ' <span aria-hidden="true">&rarr;</span>' ); ?></div>
 			</div><!-- /.d-flex -->
 	<?php
 		} else {
@@ -233,7 +233,7 @@ if ( ! function_exists( 'testing_content_nav' ) ) {
  *
  * @return void
  */
-function testing_widgets_init() {
+function swiftbridge_widgets_init() {
 	// Area 1.
 	register_sidebar(
 		array(
@@ -270,23 +270,23 @@ function testing_widgets_init() {
 		)
 	);
 }
-// add_action( 'widgets_init', 'testing_widgets_init' );
+// add_action( 'widgets_init', 'swiftbridge_widgets_init' );
 
-if ( ! function_exists( 'testing_article_posted_on' ) ) {
+if ( ! function_exists( 'swiftbridge_article_posted_on' ) ) {
 	/**
 	 * "Theme posted on" pattern.
 	 *
 	 * @since v1.0
 	 */
-	function testing_article_posted_on() {
+	function swiftbridge_article_posted_on() {
 		printf(
-			wp_kses_post( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author-meta vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'testing' ) ),
+			wp_kses_post( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author-meta vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'swiftbridge' ) ),
 			esc_url( get_the_permalink() ),
 			esc_attr( get_the_date() . ' - ' . get_the_time() ),
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date() . ' - ' . get_the_time() ),
 			esc_url( get_author_posts_url( (int) get_the_author_meta( 'ID' ) ) ),
-			sprintf( esc_attr__( 'View all posts by %s', 'testing' ), get_the_author() ),
+			sprintf( esc_attr__( 'View all posts by %s', 'swiftbridge' ), get_the_author() ),
 			get_the_author()
 		);
 	}
@@ -299,17 +299,17 @@ if ( ! function_exists( 'testing_article_posted_on' ) ) {
  *
  * @return string
  */
-function testing_password_form() {
+function swiftbridge_password_form() {
 	global $post;
 	$label = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
 
 	$output = '<div class="row">';
 		$output .= '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">';
-		$output .= '<h4 class="col-md-12 alert alert-warning">' . esc_html__( 'This content is password protected. To view it please enter your password below.', 'testing' ) . '</h4>';
+		$output .= '<h4 class="col-md-12 alert alert-warning">' . esc_html__( 'This content is password protected. To view it please enter your password below.', 'swiftbridge' ) . '</h4>';
 			$output .= '<div class="col-md-6">';
 				$output .= '<div class="input-group">';
-					$output .= '<input type="password" name="post_password" id="' . esc_attr( $label ) . '" placeholder="' . esc_attr__( 'Password', 'testing' ) . '" class="form-control" />';
-					$output .= '<div class="input-group-append"><input type="submit" name="submit" class="btn btn-primary" value="' . esc_attr__( 'Submit', 'testing' ) . '" /></div>';
+					$output .= '<input type="password" name="post_password" id="' . esc_attr( $label ) . '" placeholder="' . esc_attr__( 'Password', 'swiftbridge' ) . '" class="form-control" />';
+					$output .= '<div class="input-group-append"><input type="submit" name="submit" class="btn btn-primary" value="' . esc_attr__( 'Submit', 'swiftbridge' ) . '" /></div>';
 				$output .= '</div><!-- /.input-group -->';
 			$output .= '</div><!-- /.col -->';
 		$output .= '</form>';
@@ -317,10 +317,10 @@ function testing_password_form() {
 
 	return $output;
 }
-add_filter( 'the_password_form', 'testing_password_form' );
+add_filter( 'the_password_form', 'swiftbridge_password_form' );
 
 
-if ( ! function_exists( 'testing_comment' ) ) {
+if ( ! function_exists( 'swiftbridge_comment' ) ) {
 	/**
 	 * Style Reply link.
 	 *
@@ -330,14 +330,14 @@ if ( ! function_exists( 'testing_comment' ) ) {
 	 *
 	 * @return string
 	 */
-	function testing_replace_reply_link_class( $class ) {
+	function swiftbridge_replace_reply_link_class( $class ) {
 		return str_replace( "class='comment-reply-link", "class='comment-reply-link btn btn-outline-secondary", $class );
 	}
-	add_filter( 'comment_reply_link', 'testing_replace_reply_link_class' );
+	add_filter( 'comment_reply_link', 'swiftbridge_replace_reply_link_class' );
 
 	/**
 	 * Template for comments and pingbacks:
-	 * add function to comments.php ... wp_list_comments( array( 'callback' => 'testing_comment' ) );
+	 * add function to comments.php ... wp_list_comments( array( 'callback' => 'swiftbridge_comment' ) );
 	 *
 	 * @since v1.0
 	 *
@@ -345,7 +345,7 @@ if ( ! function_exists( 'testing_comment' ) ) {
 	 * @param array  $args    Comment args.
 	 * @param int    $depth   Comment depth.
 	 */
-	function testing_comment( $comment, $args, $depth ) {
+	function swiftbridge_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
 		switch ( $comment->comment_type ) :
 			case 'pingback':
@@ -354,9 +354,9 @@ if ( ! function_exists( 'testing_comment' ) ) {
 		<li class="post pingback">
 			<p>
 				<?php
-					esc_html_e( 'Pingback:', 'testing' );
+					esc_html_e( 'Pingback:', 'swiftbridge' );
 					comment_author_link();
-					edit_comment_link( esc_html__( 'Edit', 'testing' ), '<span class="edit-link">', '</span>' );
+					edit_comment_link( esc_html__( 'Edit', 'swiftbridge' ), '<span class="edit-link">', '</span>' );
 				?>
 			</p>
 	<?php
@@ -373,23 +373,23 @@ if ( ! function_exists( 'testing_comment' ) ) {
 
 							/* Translators: 1: Comment author, 2: Date and time */
 							printf(
-								wp_kses_post( __( '%1$s, %2$s', 'testing' ) ),
+								wp_kses_post( __( '%1$s, %2$s', 'swiftbridge' ) ),
 								sprintf( '<span class="fn">%s</span>', get_comment_author_link() ),
 								sprintf( '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
 									esc_url( get_comment_link( $comment->comment_ID ) ),
 									get_comment_time( 'c' ),
 									/* Translators: 1: Date, 2: Time */
-									sprintf( esc_html__( '%1$s ago', 'testing' ), human_time_diff( (int) get_comment_time( 'U' ), current_time( 'timestamp' ) ) )
+									sprintf( esc_html__( '%1$s ago', 'swiftbridge' ), human_time_diff( (int) get_comment_time( 'U' ), current_time( 'timestamp' ) ) )
 								)
 							);
 
-							edit_comment_link( esc_html__( 'Edit', 'testing' ), '<span class="edit-link">', '</span>' );
+							edit_comment_link( esc_html__( 'Edit', 'swiftbridge' ), '<span class="edit-link">', '</span>' );
 						?>
 					</div><!-- .comment-author .vcard -->
 
 					<?php if ( '0' === $comment->comment_approved ) { ?>
 						<em class="comment-awaiting-moderation">
-							<?php esc_html_e( 'Your comment is awaiting moderation.', 'testing' ); ?>
+							<?php esc_html_e( 'Your comment is awaiting moderation.', 'swiftbridge' ); ?>
 						</em>
 						<br />
 					<?php } ?>
@@ -403,7 +403,7 @@ if ( ! function_exists( 'testing_comment' ) ) {
 							array_merge(
 								$args,
 								array(
-									'reply_text' => esc_html__( 'Reply', 'testing' ) . ' <span>&darr;</span>',
+									'reply_text' => esc_html__( 'Reply', 'swiftbridge' ) . ' <span>&darr;</span>',
 									'depth'      => $depth,
 									'max_depth'  => $args['max_depth'],
 								)
@@ -429,7 +429,7 @@ if ( ! function_exists( 'testing_comment' ) ) {
 	 *
 	 * @return array
 	 */
-	function testing_custom_commentform( $args = array(), $post_id = null ) {
+	function swiftbridge_custom_commentform( $args = array(), $post_id = null ) {
 		if ( null === $post_id ) {
 			$post_id = get_the_ID();
 		}
@@ -445,40 +445,40 @@ if ( ! function_exists( 'testing_comment' ) ) {
 		$consent  = ( empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"' );
 		$fields   = array(
 			'author'  => '<div class="form-floating mb-3">
-							<input type="text" id="author" name="author" class="form-control" value="' . esc_attr( $commenter['comment_author'] ) . '" placeholder="' . esc_html__( 'Name', 'testing' ) . ( $req ? '*' : '' ) . '"' . $aria_req . ' />
-							<label for="author">' . esc_html__( 'Name', 'testing' ) . ( $req ? '*' : '' ) . '</label>
+							<input type="text" id="author" name="author" class="form-control" value="' . esc_attr( $commenter['comment_author'] ) . '" placeholder="' . esc_html__( 'Name', 'swiftbridge' ) . ( $req ? '*' : '' ) . '"' . $aria_req . ' />
+							<label for="author">' . esc_html__( 'Name', 'swiftbridge' ) . ( $req ? '*' : '' ) . '</label>
 						</div>',
 			'email'   => '<div class="form-floating mb-3">
-							<input type="email" id="email" name="email" class="form-control" value="' . esc_attr( $commenter['comment_author_email'] ) . '" placeholder="' . esc_html__( 'Email', 'testing' ) . ( $req ? '*' : '' ) . '"' . $aria_req . ' />
-							<label for="email">' . esc_html__( 'Email', 'testing' ) . ( $req ? '*' : '' ) . '</label>
+							<input type="email" id="email" name="email" class="form-control" value="' . esc_attr( $commenter['comment_author_email'] ) . '" placeholder="' . esc_html__( 'Email', 'swiftbridge' ) . ( $req ? '*' : '' ) . '"' . $aria_req . ' />
+							<label for="email">' . esc_html__( 'Email', 'swiftbridge' ) . ( $req ? '*' : '' ) . '</label>
 						</div>',
 			'url'     => '',
 			'cookies' => '<p class="form-check mb-3 comment-form-cookies-consent">
 							<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" class="form-check-input" type="checkbox" value="yes"' . $consent . ' />
-							<label class="form-check-label" for="wp-comment-cookies-consent">' . esc_html__( 'Save my name, email, and website in this browser for the next time I comment.', 'testing' ) . '</label>
+							<label class="form-check-label" for="wp-comment-cookies-consent">' . esc_html__( 'Save my name, email, and website in this browser for the next time I comment.', 'swiftbridge' ) . '</label>
 						</p>',
 		);
 
 		$defaults = array(
 			'fields'               => apply_filters( 'comment_form_default_fields', $fields ),
 			'comment_field'        => '<div class="form-floating mb-3">
-											<textarea id="comment" name="comment" class="form-control" aria-required="true" required placeholder="' . esc_attr__( 'Comment', 'testing' ) . ( $req ? '*' : '' ) . '"></textarea>
-											<label for="comment">' . esc_html__( 'Comment', 'testing' ) . '</label>
+											<textarea id="comment" name="comment" class="form-control" aria-required="true" required placeholder="' . esc_attr__( 'Comment', 'swiftbridge' ) . ( $req ? '*' : '' ) . '"></textarea>
+											<label for="comment">' . esc_html__( 'Comment', 'swiftbridge' ) . '</label>
 										</div>',
 			/** This filter is documented in wp-includes/link-template.php */
-			'must_log_in'          => '<p class="must-log-in">' . sprintf( wp_kses_post( __( 'You must be <a href="%s">logged in</a> to post a comment.', 'testing' ) ), wp_login_url( esc_url( get_the_permalink( get_the_ID() ) ) ) ) . '</p>',
+			'must_log_in'          => '<p class="must-log-in">' . sprintf( wp_kses_post( __( 'You must be <a href="%s">logged in</a> to post a comment.', 'swiftbridge' ) ), wp_login_url( esc_url( get_the_permalink( get_the_ID() ) ) ) ) . '</p>',
 			/** This filter is documented in wp-includes/link-template.php */
-			'logged_in_as'         => '<p class="logged-in-as">' . sprintf( wp_kses_post( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'testing' ) ), get_edit_user_link(), $user->display_name, wp_logout_url( apply_filters( 'the_permalink', esc_url( get_the_permalink( get_the_ID() ) ) ) ) ) . '</p>',
-			'comment_notes_before' => '<p class="small comment-notes">' . esc_html__( 'Your Email address will not be published.', 'testing' ) . '</p>',
+			'logged_in_as'         => '<p class="logged-in-as">' . sprintf( wp_kses_post( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'swiftbridge' ) ), get_edit_user_link(), $user->display_name, wp_logout_url( apply_filters( 'the_permalink', esc_url( get_the_permalink( get_the_ID() ) ) ) ) ) . '</p>',
+			'comment_notes_before' => '<p class="small comment-notes">' . esc_html__( 'Your Email address will not be published.', 'swiftbridge' ) . '</p>',
 			'comment_notes_after'  => '',
 			'id_form'              => 'commentform',
 			'id_submit'            => 'submit',
 			'class_submit'         => 'btn btn-primary',
 			'name_submit'          => 'submit',
 			'title_reply'          => '',
-			'title_reply_to'       => esc_html__( 'Leave a Reply to %s', 'testing' ),
-			'cancel_reply_link'    => esc_html__( 'Cancel reply', 'testing' ),
-			'label_submit'         => esc_html__( 'Post Comment', 'testing' ),
+			'title_reply_to'       => esc_html__( 'Leave a Reply to %s', 'swiftbridge' ),
+			'cancel_reply_link'    => esc_html__( 'Cancel reply', 'swiftbridge' ),
+			'label_submit'         => esc_html__( 'Post Comment', 'swiftbridge' ),
 			'submit_button'        => '<input type="submit" id="%2$s" name="%1$s" class="%3$s" value="%4$s" />',
 			'submit_field'         => '<div class="form-submit">%1$s %2$s</div>',
 			'format'               => 'html5',
@@ -486,7 +486,7 @@ if ( ! function_exists( 'testing_comment' ) ) {
 
 		return $defaults;
 	}
-	add_filter( 'comment_form_defaults', 'testing_custom_commentform' );
+	add_filter( 'comment_form_defaults', 'swiftbridge_custom_commentform' );
 }
 
 if ( function_exists( 'register_nav_menus' ) ) {
@@ -523,7 +523,7 @@ if ( is_readable( $custom_walker_footer ) ) {
  *
  * @return void
  */
-function testing_scripts_loader() {
+function swiftbridge_scripts_loader() {
 	$theme_version = wp_get_theme()->get( 'Version' );
 
 	// 1. Styles.
@@ -544,7 +544,7 @@ function testing_scripts_loader() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'testing_scripts_loader' );
+add_action( 'wp_enqueue_scripts', 'swiftbridge_scripts_loader' );
 
 
 add_filter("wpcf7_autop_or_not", "__return_false");

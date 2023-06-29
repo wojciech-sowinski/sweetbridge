@@ -5,13 +5,12 @@
 
 get_header();
 
-if (have_posts()):
 	?>
-	<header class="page-header container py-5">
+	<header class="page-header container pt-5">
 		<div class="row">
 			<div class="col-12">
 				<h1 class="page-title">
-					<?php printf(esc_html__('Search Results for: %s', 'testing'), get_search_query()); ?>
+					<?php printf(esc_html__('Search Results for: %s', 'swiftbridge'), get_search_query()); ?>
 				</h1>
 			</div>
 		</div>
@@ -22,9 +21,11 @@ if (have_posts()):
 			<?= get_template_part('template-parts/section', 'search');  ?>
 			</div>
 			<div class="col-12 col-md-8 d-flex flex-wrap">
-				<div class="row">
-					<?php
+				<?php
 					if (have_posts()) {
+						?>
+						<div class="row">
+						<?php
 						$counter = 1;
 						while (have_posts()) {
 							the_post();
@@ -89,24 +90,21 @@ if (have_posts()):
 								$counter++;
 							}
 							?>
+					</div>
 					<?php
 					wp_reset_postdata();
 						}
-
 					} else {
-						echo __('No posts found.', 'swiftbridge');
+						get_template_part( 'content', 'none' );
 					}
 					?>
-				</div>
 
 			</div>
 		</div>
 	</section>
 
 	<?php
-else:
-	echo __('No posts found.', 'swiftbridge');
-endif;
+
 wp_reset_postdata();
 
 get_footer();

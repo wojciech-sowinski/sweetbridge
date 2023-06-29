@@ -5,22 +5,51 @@
 
 get_header();
 
-if ( have_posts() ) :
-?>
-	<header class="page-header">
-		<h1 class="page-title"><?php printf( esc_html__( 'Tag: %s', 'testing' ), single_tag_title( '', false ) ); ?></h1>
-		<?php
-			$tag_description = tag_description();
-			if ( ! empty( $tag_description ) ) :
-				echo apply_filters( 'tag_archive_meta', '<div class="tag-archive-meta">' . $tag_description . '</div>' );
-			endif;
-		?>
+$args = array(
+	'post_type' => 'news',
+	'orderby' => 'name',
+	'order' => 'ASC',
+	'tax_query' => array(
+		array(
+			'taxonomy' => 'post_tag',
+			// Taxonomy dla tagów
+			'field' => 'name',
+			'terms' => esc_attr(single_tag_title('', false)) // Zamiast 'your-tag-slug' wpisz slug konkretnego tagu
+		)
+	)
+);
+
+$query = new WP_Query($args);
+
+
+
+if ($query->have_posts()):
+	?>
+	<header class="page-header container pt-5">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="page-title">
+					<?php echo esc_html__(single_tag_title('', false)); ?>
+				</h1>
+			</div>
+		</div>
 	</header>
-<?php
-	get_template_part( 'archive', 'loop' );
-else :
-	// 404.
-	get_template_part( 'content', 'none' );
+	<section class="container pb-5">
+		<div class="row">
+			<div class="col-12 col-md-4">
+				<?= get_template_part('template-parts/section', 'search'); ?>
+			</div>
+			<div class="col-12 col-md-8 d-flex flex-wrap">
+				<div class="row">
+					<?php set_query_var('query', $query ); ?>
+					<?= get_template_part('template-parts/section', 'news-panels'); ?>
+				</div>
+			</div>
+		</div>
+	</section>
+	<?php
+else:
+	get_template_part('content', 'none');
 endif;
 
 wp_reset_postdata(); // End of the loop.

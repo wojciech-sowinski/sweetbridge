@@ -1,7 +1,7 @@
 <?php if (have_rows('partners_cards')): ?>
     <section id="section-partners" class="bg-white">
-        <div class="partners container pb-3 pb-lg-5 ">
-            <div class="row pb-4">
+        <div class="partners container pb-3 pb-lg-3 ">
+            <div class="row ">
                 <div class="col-12">
                     <h2>
                         <?php the_field('partners_title'); ?>
@@ -12,7 +12,7 @@
                 <?php while (have_rows('partners_cards')):
                     the_row(); ?>
                     <div class="col-12 col-lg-6 d-flex flex-wrap p-3 justify-content-center justify-content-sm-start gap-3">
-                        <div class="col-12 col-sm-3 card-icon ">
+                        <div class="col-12 col-sm-3 card-icon-img">
                             <?php $partners_cards_card_flag = get_sub_field('partners_cards_card_flag'); ?>
                             <?php $size = 'full'; ?>
                             <?php if ($partners_cards_card_flag): ?>
@@ -20,7 +20,7 @@
                             <?php endif; ?>
                         </div>
                         <div class="col-12 col-sm-9 px-3">
-                            <p class="text-center text-sm-start">
+                            <p class="text-center text-sm-start m-0">
                                 <?php the_sub_field('partners_cards_card_excerpt'); ?>
                             </p>
                         </div>

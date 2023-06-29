@@ -22,7 +22,7 @@ the_post();
 	</div>
 	<div class="container content" style="z-index:100; position:relative">
 		<div class="row py-3">
-			<h1 class="col-12 col-lg-8 text-white pb-4 text-center text-md-start">
+			<h1 class="col-12 col-lg-8 text-white pb-4 text-center text-md-start ">
 				<?php the_field('home_page_section_1_title'); ?>
 			</h1>
 		</div>
@@ -55,12 +55,12 @@ the_post();
 				<?php while (have_rows('home_page_section_1_cards')):
 					the_row(); ?>
 					<div class="col-12 col-md-4">
-						<div class="p-3">
+						<div class="px-3 py-1">
 							<span class="rounded-number bg-light text-dark">
 								<?= get_row_index(); ?>
 							</span>
 						</div>
-						<p class="p-3 text-light" style="font-weight:600; font-size:15px">
+						<p class="px-3 py-2 text-light" style="font-weight:600; font-size:15px">
 							<?php the_sub_field('home_page_section_1_cards_card_text'); ?>
 						</p>
 					</div>
@@ -79,7 +79,7 @@ the_post();
 				if (get_row_index() == 1) {
 					?>
 					<div class="col-12 col-lg-6 p-4 p-md-5 d-flex flex-column gap-4">
-							<div class="card-icon">
+							<div class="card-icon card-icon-img">
 								<?php $home_page_section_2_icon_cards_card_img = get_sub_field('home_page_section_2_icon_cards_card_img'); ?>
 								<?php $size = 'full'; ?>
 								<?php if ($home_page_section_2_icon_cards_card_img): ?>
@@ -106,7 +106,7 @@ the_post();
 									<?php if (get_row_index() > 1) {
 										?>
 										<li class="splide__slide  d-flex flex-column gap-4 pb-5">
-											<div class="card-icon">
+											<div class="card-icon  card-icon-img">
 												<?php $home_page_section_2_icon_cards_card_img = get_sub_field('home_page_section_2_icon_cards_card_img'); ?>
 												<?php $size = 'full'; ?>
 												<?php if ($home_page_section_2_icon_cards_card_img): ?>
@@ -151,7 +151,7 @@ the_post();
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-12 col-lg-6 py-5 pe-2 pe-lg-5">
+				<div class="col-12 col-lg-6 pt-6 pe-2 pe-lg-5">
 					<h2 class="pb-4 d-flex align-items-center justify-content-between">
 						<?php the_field('services_title'); ?>
 						<?php $services_url = get_field('services_url'); ?>

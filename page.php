@@ -19,13 +19,13 @@ the_post();
 
 				wp_link_pages(
 					array(
-						'before'   => '<nav class="page-links" aria-label="' . esc_attr__( 'Page', 'testing' ) . '">',
+						'before'   => '<nav class="page-links" aria-label="' . esc_attr__( 'Page', 'swiftbridge' ) . '">',
 						'after'    => '</nav>',
-						'pagelink' => esc_html__( 'Page %', 'testing' ),
+						'pagelink' => esc_html__( 'Page %', 'swiftbridge' ),
 					)
 				);
 				edit_post_link(
-					esc_attr__( 'Edit', 'testing' ),
+					esc_attr__( 'Edit', 'swiftbridge' ),
 					'<span class="edit-link">',
 					'</span>'
 				);

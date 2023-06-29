@@ -10,8 +10,8 @@ if ( get_the_author_meta( 'description' ) ) :
 		<div class="col-sm-12">
 			<h2>
 				<?php
-					echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'testing_author_bio_avatar_size', 48 ) ) . '&nbsp;';
-					printf( esc_html__( 'About %s', 'testing' ), get_the_author() );
+					echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'swiftbridge_author_bio_avatar_size', 48 ) ) . '&nbsp;';
+					printf( esc_html__( 'About %s', 'swiftbridge' ), get_the_author() );
 				?>
 			</h2>
 			<div class="author-description">
@@ -20,7 +20,7 @@ if ( get_the_author_meta( 'description' ) ) :
 			<div class="author-links">
 				<?php
 					if ( ! empty( get_the_author_meta( 'user_url' ) ) ) :
-						printf( '<a href="%s" class="www btn btn-secondary btn-sm">' . esc_html__( 'Website', 'testing' ) . '</a>', esc_url( get_the_author_meta( 'user_url' ) ) );
+						printf( '<a href="%s" class="www btn btn-secondary btn-sm">' . esc_html__( 'Website', 'swiftbridge' ) . '</a>', esc_url( get_the_author_meta( 'user_url' ) ) );
 					endif;
 
 					// Add new Profile fields for Users in functions.php

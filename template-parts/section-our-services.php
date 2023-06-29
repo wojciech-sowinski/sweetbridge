@@ -42,7 +42,7 @@
                     $query->the_post();
                     ?>
                     <a class="col-12 col-lg-4" title="<?= get_the_title(); ?>" href="<?= get_the_permalink(); ?>">
-                        <div class=" d-flex flex-column gap-3 py-4 px-3 py-lg-5 px-lg-5 service-panel h-100">
+                        <div class=" d-flex flex-column gap-3 py-3 px-3 py-lg-4 px-lg-4 service-panel h-100">
                             <div class="d-flex justify-content-between">
                                 <span style="font-size:40px;" class=" <?php the_field('service_icon'); ?> icon"></span>
                                 <span style="font-size:24px; line-height:30px" class="icon-arrow-right"></span>
@@ -60,6 +60,7 @@
             }
 
             ?>
+            
         </div>
         <?php
         if (!empty(get_field('or_services_motto'))) {

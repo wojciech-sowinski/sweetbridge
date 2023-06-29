@@ -3,7 +3,7 @@
  * The template for displaying the archive loop.
  */
 
-testing_content_nav( 'nav-above' );
+swiftbridge_content_nav( 'nav-above' );
 
 if ( have_posts() ) :
 ?>
@@ -22,4 +22,4 @@ endif;
 
 wp_reset_postdata();
 
-testing_content_nav( 'nav-below' );
+swiftbridge_content_nav( 'nav-below' );

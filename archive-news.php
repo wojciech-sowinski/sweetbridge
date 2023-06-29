@@ -100,8 +100,9 @@ get_header();
 				<?php
 				wp_reset_postdata();
 			} else {
-				echo __('No posts found.', 'swiftbridge');
+				get_template_part( 'content', 'none' );
 			}
+			
 			?>
 			</div>
 			<div class="row p-3 mx-auto">

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
+
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,10 +12,11 @@ $navbar_scheme = get_theme_mod('navbar_scheme', 'navbar-light bg-light'); // Get
 $navbar_position = get_theme_mod('navbar_position', 'static'); // Get custom meta-value.
 $search_enabled = get_theme_mod('search_enabled', '1'); // Get custom meta-value.
 ?>
+
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 	<a href="#main" class="visually-hidden-focusable">
-		<?php esc_html_e('Skip to main content', 'testing'); ?>
+		<?php esc_html_e('Skip to main content', 'swiftbridge'); ?>
 	</a>
 	<div id="wrapper">
 		<header>
@@ -44,45 +46,53 @@ $search_enabled = get_theme_mod('search_enabled', '1'); // Get custom meta-value
 					</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
 						aria-controls="navbar" aria-expanded="false"
-						aria-label="<?php esc_attr_e('Toggle navigation', 'testing'); ?>">
+						aria-label="<?php esc_attr_e('Toggle navigation', 'swiftbridge'); ?>">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="w-100 d-flex flex-column gap-3">
 						<div>
 							<div class="languages d-flex justify-content-end gap-2">
-								<span class="active">PL</span>
-								<span>ENG</span>
-								<span>UA</span>
+<?php 
+
+
+echo do_shortcode( '[wpml_language_switcher flags=0 native=1 translated=0]' );
+
+// do_action('wpml_add_language_selector');
+
+?>
+								
+
+
 							</div>
 						</div>
 						<div id="navbar" class="collapse navbar-collapse justify-content-end ">
-						<?php
-						wp_nav_menu(
-							array(
-								'menu_class' => 'navbar-nav d-flex justify-content-end',
-								'container' => '',
-								'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
-								'walker' => new WP_Bootstrap_Navwalker(),
-								'theme_location' => 'main-menu',
-							)
-						);
-						if ('1' === $search_enabled):
-							?>
-							<form class="search-form my-2 my-lg-0" role="search" method="get"
-								action="<?php echo esc_url(home_url('/')); ?>">
-								<div class="input-group">
-									<input type="text" name="s" class="form-control"
-										placeholder="<?php esc_attr_e('Search', 'testing'); ?>"
-										title="<?php esc_attr_e('Search', 'testing'); ?>" />
-									<button type="submit" name="submit" class="btn btn-outline-secondary">
-										<?php esc_html_e('Search', 'testing'); ?>
-									</button>
-								</div>
-							</form>
 							<?php
-						endif;
-						?>
-					</div>
+							wp_nav_menu(
+								array(
+									'menu_class' => 'navbar-nav d-flex justify-content-end',
+									'container' => '',
+									'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
+									'walker' => new WP_Bootstrap_Navwalker(),
+									'theme_location' => 'main-menu',
+								)
+							);
+							if ('1' === $search_enabled):
+								?>
+								<form class="search-form my-2 my-lg-0" role="search" method="get"
+									action="<?php echo esc_url(home_url('/')); ?>">
+									<div class="input-group">
+										<input type="text" name="s" class="form-control"
+											placeholder="<?php esc_attr_e('Search', 'swiftbridge'); ?>"
+											title="<?php esc_attr_e('Search', 'swiftbridge'); ?>" />
+										<button type="submit" name="submit" class="btn btn-outline-secondary">
+											<?php esc_html_e('Search', 'swiftbridge'); ?>
+										</button>
+									</div>
+								</form>
+								<?php
+							endif;
+							?>
+						</div>
 					</div>
 				</div>
 			</nav>
