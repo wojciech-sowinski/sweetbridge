@@ -9,9 +9,12 @@
 					</div>
 				</div>
 				<div class="row cards d-none d-sm-flex">
+					<?php 
+					$industriesCards = 100;
+					?>
 					<?php while (have_rows('industries_cards')):
 						the_row(); ?>
-						<div class="col-12 col-sm-6 col-lg-3 industries-card p-3 p-sm-5 d-flex flex-column gap-3">
+						<div class="col-12 col-sm-6 col-lg-3 industries-card p-3 p-sm-5 d-flex flex-column gap-3" data-aos="zoom-in" >
 							<div class="d-flex justify-content-center">
 								<span style="font-size:40px"
 									class="<?php the_sub_field('industries_cards_card_icon_class'); ?>"></span>

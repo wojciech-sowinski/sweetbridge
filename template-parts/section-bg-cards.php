@@ -1,5 +1,5 @@
 <?php if (have_rows('cards_bg_cards')): ?>
-	<section class="cards-bg py-6" style="
+	<section class="cards-bg py-" style="
 			overflow-x: hidden;
 				background-image: linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,1)),
 								url('<?php if (get_field('cards_bg_cards_bg')): ?>
@@ -32,7 +32,7 @@
 								<?php the_field('cards_bg_title'); ?>
 							</h2>
 							<p class="text-white" style="z-index:10">
-								<?php the_field('cards_bg_excerpt'); ?>
+								<?php textToBlend(get_field('cards_bg_excerpt')); ?>
 							</p>
 						</div>
 						<div class="col-12 col-lg-4 d-flex flex-column gap-1 py-4 px-3 py-lg-5 px-lg-5 panel">

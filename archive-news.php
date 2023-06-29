@@ -43,11 +43,9 @@ get_header();
 						}
 						?>
 						<div <?php post_class($post_classes); ?>>
-
 							<?php if ($counter != 1) {
 								echo '<a href="' . get_permalink() . '">';
 							} ?>
-
 							<?php
 							if ($counter == 1) {
 								echo '<div class="row">';
@@ -63,11 +61,11 @@ get_header();
 								</div>
 							<?php endif;
 							?>
-							<div class="post-content col-12 <?php if ($counter == 1) {
+							<div class="post-content d-flex flex-column mt-3 gap-3 col-12 <?php if ($counter == 1) {
 								echo 'col-lg-6';
 							}
 							; ?>">
-								<p class="post-date">
+								<p class="post-date m-0">
 									<?php echo get_the_date(); ?>
 								</p>
 								<h2 class="post-card-title">
@@ -76,6 +74,7 @@ get_header();
 								<div class="excerpt">
 									<?php the_excerpt(); ?>
 								</div>
+								<div>
 								<?php
 								if ($counter == 1) {
 									?>
@@ -83,6 +82,7 @@ get_header();
 									<?php
 								}
 								?>
+								</div>
 							</div>
 							<?php
 							if ($counter == 1) {

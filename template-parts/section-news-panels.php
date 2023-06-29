@@ -31,7 +31,7 @@ if ($query->have_posts()) {
 					</div>
 				<?php endif;
 				?>
-				<div class="post-content col-12 <?php if ($counter == 1) {
+				<div class="post-content  d-flex flex-column mt-3 gap-3  col-12 <?php if ($counter == 1) {
 					echo 'col-lg-6';
 				}
 				; ?>">
@@ -47,7 +47,9 @@ if ($query->have_posts()) {
 					<?php
 					if ($counter == 1) {
 						?>
-						<a href="<?php the_permalink(); ?>" class="btn btn-primary"><?= __('Read more', 'swiftbridge'); ?></a>
+						<div>
+							<a href="<?php the_permalink(); ?>" class="btn btn-primary"><?= __('Read more', 'swiftbridge'); ?></a>
+						</div>
 						<?php
 					}
 					?>
@@ -70,5 +72,4 @@ if ($query->have_posts()) {
 	}
 } else {
 	get_template_part('content', 'none');
-}
-?>
+} ?>

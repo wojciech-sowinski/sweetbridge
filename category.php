@@ -7,7 +7,7 @@ get_header();
 
 $args = array(
 	'post_type' => 'news',
-	'category_name' => esc_attr( single_cat_title('', false) ),
+	'category_name' => esc_attr(single_cat_title('', false)),
 );
 $query = new WP_Query($args);
 if ($query->have_posts()):
@@ -16,6 +16,7 @@ if ($query->have_posts()):
 		<div class="row">
 			<div class="col-12">
 				<h1 class="page-title">
+					<?= __('Category', 'swiftbridge') ?>:
 					<?php echo esc_html__(single_cat_title('', false)); ?>
 				</h1>
 			</div>
@@ -31,7 +32,26 @@ if ($query->have_posts()):
 					<?php set_query_var('query', $query); ?>
 					<?= get_template_part('template-parts/section', 'news-panels'); ?>
 				</div>
+				<div class="row p-3 mx-auto">
+					<?php
+					echo '<div class="pagination d-flex justify-content-center">';
+					global $wp_query;
 
+					$big = 999999999; // wartość duża, aby zapewnić, że wszystkie strony będą pokazywane
+					echo paginate_links(
+						array(
+							'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+							'format' => '?paged=%#%',
+							'current' => max(1, get_query_var('paged')),
+							'total' => $wp_query->max_num_pages,
+							'prev_text' => __('Previous', 'swiftbridge'),
+							'next_text' => __('Next', 'swiftbridge'),
+							// 'type' => 'list',
+						)
+					);
+					echo '</div>';
+					?>
+				</div>
 			</div>
 		</div>
 	</section>

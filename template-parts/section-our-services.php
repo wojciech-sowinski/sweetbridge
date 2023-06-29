@@ -1,7 +1,7 @@
 <section class="section-our-services" id="section-our-services">
     <div class="container">
-        <div class="row py-3">
-            <div class="col-12">
+        <div class="row py-3" data-aos="fade-up">
+            <div class="col-12" >
                 <?php if (get_field( 'or_services_first' ) == 1): ?>
                     <h1>
                         <?php the_field('or_services_title'); ?>
@@ -18,7 +18,7 @@
         <?php
         if (!empty(get_field('or_services_excerpt'))) {
             ?>
-            <div class="row py-3">
+            <div class="row py-3" data-aos="fade-up">
                 <div class="col-12">
                     <p>
                         <?php the_field('or_services_excerpt'); ?>
@@ -38,14 +38,15 @@
             );
             $query = new WP_Query($args);
             if ($query->have_posts()) {
+                $cardsDelayTime=0;
                 while ($query->have_posts()) {
                     $query->the_post();
                     ?>
-                    <a class="col-12 col-lg-4" title="<?= get_the_title(); ?>" href="<?= get_the_permalink(); ?>">
+                    <a class="col-12 col-lg-4" title="<?= get_the_title(); ?>" href="<?= get_the_permalink(); ?>"  data-aos="fade-up" data-aos-delay="<?= $cardsDelayTime+=100;?>">
                         <div class=" d-flex flex-column gap-3 py-3 px-3 py-lg-4 px-lg-4 service-panel h-100">
                             <div class="d-flex justify-content-between">
-                                <span style="font-size:40px;" class=" <?php the_field('service_icon'); ?> icon"></span>
-                                <span style="font-size:24px; line-height:30px" class="icon-arrow-right"></span>
+                                <span  class=" <?php the_field('service_icon'); ?> card-icon icon"></span>
+                                <span  class="icon-arrow-right"></span>
                             </div>
                             <p>
                                 <?php the_field('service_excerpt'); ?>
@@ -72,7 +73,7 @@
                             title="motto sign">
                     </p>
                     <p class="motto text-white px-3 px-xl-3 col-10 text-center">
-                        <?php the_field('or_services_motto'); ?>
+                        <?php textToBlur(get_field('or_services_motto')); ?>
                     </p>
                 </div>
             </div>

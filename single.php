@@ -31,7 +31,7 @@ the_post();
 			<div class="row">
 				<div class="col-12">
 					<?php
-					the_post_thumbnail('full', ['class' => 'img-cover simple-banner'])
+					the_post_thumbnail('full', ['class' => 'img-cover simple-banner animate-banner'])
 						?>
 				</div>
 			</div>

@@ -35,20 +35,23 @@
 									title="motto sign">
 							</p>
 							<p class="motto text-white px-3 px-xl-3 col-10">
-								<?php the_field('home_page_about_us_motto'); ?>
+								<?php textToBlur(get_field('home_page_about_us_motto')); ?>
 							</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-lg-6 py-3 py-lg-0">
+				<div class="col-12 col-lg-6 py-3 py-lg-0 d-flex flex-column gap-3">
 					<p class="py-3 px-0 px-lg-5 py-lg-3 fw-semibold headline-font">
 						<?php the_field('home_page_about_us_cards_section_title'); ?>
 					</p>
 					<?php if (have_rows('home_page_about_us_cards')): ?>
 						<div class="d-flex flex-wrap">
+							<?php
+							$aboutUsCardCounter = 500;
+							?>
 							<?php while (have_rows('home_page_about_us_cards')):
 								the_row(); ?>
-								<div
+								<div data-aos="flip-up" data-aos-duration="1000" data-aos-delay="<?= $aboutUsCardCounter+=200 ?>"
 									class="col-12 col-sm-8 mx-auto col-md-6 pe-1 ps-0 py-3 ps-lg-3 py-lg-3 ps-xl-5 d-flex flex-column align-items-center align-items-md-start gap-1">
 									<div class="card-icon-mini d-flex ">
 										<?php $home_page_about_us_cards_card_img = get_sub_field('home_page_about_us_cards_card_img'); ?>

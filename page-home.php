@@ -9,7 +9,7 @@ get_header();
 
 the_post();
 ?>
-<section class="home_page_section_1 container-fluid position-relative px-0 pt-0 pb-5">
+<section class="home_page_section_1 container-fluid position-relative px-0 pt-0 pb-5 step-gradient">
 	<div class="content col-12 col-xxl-11 position-absolute offset-0 offset-xxl-1 h-100" style="z-index:1;background: linear-gradient(0deg, rgba(43, 64, 180,
 					<?php the_field('home_page_section_1_opacity'); ?>
 				), rgba(43, 64, 180,
@@ -23,15 +23,20 @@ the_post();
 	<div class="container content" style="z-index:100; position:relative">
 		<div class="row py-3">
 			<h1 class="col-12 col-lg-8 text-white pb-4 text-center text-md-start ">
-				<?php the_field('home_page_section_1_title'); ?>
+				<?php
+				textToBlur(get_field('home_page_section_1_title'));
+				?>
 			</h1>
 		</div>
 		<div class="row d-flex align-items-center gap-3 justify-content-center justify-content-md-start">
 			<?php if (have_rows('home_page_section_1_btns')): ?>
 				<div class="buttons d-flex gap-2 w-auto ">
+					<?php 
+					$btnsCounter = 500;
+					?>
 					<?php while (have_rows('home_page_section_1_btns')):
 						the_row(); ?>
-						<a href="<?php the_sub_field('home_page_section_1_btns_btn_url'); ?>"
+						<a data-aos="flip-up" data-aos-duration="500" data-aos-delay="<?= $btnsCounter+=200 ?>"  href="<?php the_sub_field('home_page_section_1_btns_btn_url'); ?>"
 							class="btn btn-light text-primary">
 							<?php the_sub_field('home_page_section_1_btns_btn_text'); ?>
 						</a>
@@ -42,7 +47,11 @@ the_post();
 				<div class="links d-flex gap-2 w-auto">
 					<?php while (have_rows('home_page_section_1_links')):
 						the_row(); ?>
-						<a class="text-light fw-semibold secondary-hover " title="<?php the_sub_field('home_page_section_1_links_link_text'); ?>"
+						<?php 
+						$linksCounter = 700;
+						?>
+						<a data-aos="flip-up" data-aos-duration="500" data-aos-delay="<?= $btnsCounter+=200 ?>" class="text-light fw-semibold secondary-hover "
+							title="<?php the_sub_field('home_page_section_1_links_link_text'); ?>"
 							href="<?php the_sub_field('home_page_section_1_links_link_url'); ?>">
 							<?php the_sub_field('home_page_section_1_links_link_text'); ?>
 						</a>
@@ -52,9 +61,12 @@ the_post();
 		</div>
 		<?php if (have_rows('home_page_section_1_cards')): ?>
 			<div class="row d-flex  pt-5">
+				<?php 
+				$cardCouner = 1000;
+				?>
 				<?php while (have_rows('home_page_section_1_cards')):
 					the_row(); ?>
-					<div class="col-12 col-md-4">
+					<div class="col-12 col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="<?= $cardCouner+=200 ?>">
 						<div class="px-3 py-1">
 							<span class="rounded-number bg-light text-dark">
 								<?= get_row_index(); ?>
@@ -70,28 +82,27 @@ the_post();
 	</div>
 </section>
 <?php if (have_rows('home_page_section_2_icon_cards')): ?>
-	<section class="home_page_section_2 container pt-0">
+	<section class="home_page_section_2 container pt-0" data-aos="fade-up" data-aos-duration="1000">
 		<div class="row step-gradient">
-
 			<?php while (have_rows('home_page_section_2_icon_cards')):
 				the_row(); ?>
 				<?php
 				if (get_row_index() == 1) {
 					?>
 					<div class="col-12 col-lg-6 p-4 p-md-5 d-flex flex-column gap-4">
-							<div class="card-icon card-icon-img">
-								<?php $home_page_section_2_icon_cards_card_img = get_sub_field('home_page_section_2_icon_cards_card_img'); ?>
-								<?php $size = 'full'; ?>
-								<?php if ($home_page_section_2_icon_cards_card_img): ?>
-									<?php echo wp_get_attachment_image($home_page_section_2_icon_cards_card_img, $size); ?>
-								<?php endif; ?>
-							</div>
-							<p class="text-primary fw-bold">
-								<?php the_sub_field('tytul_kartyhome_page_section_2_icon_cards_card_title'); ?>
-							</p>
-							<p>
-								<?php the_sub_field('home_page_section_2_icon_cards_card_text'); ?>
-							</p>
+						<div class="card-icon card-icon-img">
+							<?php $home_page_section_2_icon_cards_card_img = get_sub_field('home_page_section_2_icon_cards_card_img'); ?>
+							<?php $size = 'full'; ?>
+							<?php if ($home_page_section_2_icon_cards_card_img): ?>
+								<?php echo wp_get_attachment_image($home_page_section_2_icon_cards_card_img, $size); ?>
+							<?php endif; ?>
+						</div>
+						<p class="text-primary fw-bold">
+							<?php the_sub_field('tytul_kartyhome_page_section_2_icon_cards_card_title'); ?>
+						</p>
+						<p>
+							<?php the_sub_field('home_page_section_2_icon_cards_card_text'); ?>
+						</p>
 					</div>
 					<?php
 				} ?>
@@ -133,16 +144,11 @@ the_post();
 	<?php get_template_part('template-parts/section', 'partners-carousel'); ?>
 	<?php get_template_part('template-parts/section', 'about-us'); ?>
 	<?php get_template_part('template-parts/section', 'partners-cards'); ?>
-
-
-	<!-- pocatek sekcji about -->
-
-	<!-- koniec sekcji about -->
 	<?php get_template_part('template-parts/section', 'bg-cards'); ?>
 	<?php get_template_part('template-parts/section', 'experts'); ?>
 
-	<section class="services bg-white pt-5">
-		<div class="banner">
+	<section class="services bg-white pt-5" >
+		<div class="banner animate-banner">
 			<?php $services_img = get_field('services_img'); ?>
 			<?php $size = 'full'; ?>
 			<?php if ($services_img): ?>
@@ -151,7 +157,7 @@ the_post();
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-12 col-lg-6 pt-6 pe-2 pe-lg-5">
+				<div class="col-12 col-lg-6 pt-6 pe-2 pe-lg-5 " data-aos="fade-right" data-aos-delay="1000" >
 					<h2 class="pb-4 d-flex align-items-center justify-content-between">
 						<?php the_field('services_title'); ?>
 						<?php $services_url = get_field('services_url'); ?>
@@ -165,7 +171,7 @@ the_post();
 				</div>
 				<div class="col-12 col-lg-6 services-motto d-flex  justify-content-center p-5 h-50">
 					<p class="motto text-white col-10">
-						<?php the_field('services_motto'); ?>
+						<?php textToBlur(get_field('services_motto')); ?>
 					</p>
 					<p class="motto-sign col-2 ">
 						<img src="<?= get_theme_file_uri('/media/img/motto-sign.svg') ?>" alt="motto sign"

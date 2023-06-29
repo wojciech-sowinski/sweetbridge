@@ -51,18 +51,10 @@ $search_enabled = get_theme_mod('search_enabled', '1'); // Get custom meta-value
 					</button>
 					<div class="w-100 d-flex flex-column gap-3">
 						<div>
-							<div class="languages d-flex justify-content-end gap-2">
-<?php 
-
-
-echo do_shortcode( '[wpml_language_switcher flags=0 native=1 translated=0]' );
-
-// do_action('wpml_add_language_selector');
-
-?>
-								
-
-
+							<div class="languages d-flex justify-content-end gap-2 d-none d-lg-flex">
+								<?php
+								echo do_shortcode('[wpml_language_switcher flags=0 native=1 translated=0]');
+								?>
 							</div>
 						</div>
 						<div id="navbar" class="collapse navbar-collapse justify-content-end ">
@@ -92,6 +84,11 @@ echo do_shortcode( '[wpml_language_switcher flags=0 native=1 translated=0]' );
 								<?php
 							endif;
 							?>
+							<div class="languages d-flex justify-content-end gap-2 d-lg-none">
+								<?php
+								echo do_shortcode('[wpml_language_switcher flags=0 native=1 translated=0]');
+								?>
+							</div>
 						</div>
 					</div>
 				</div>

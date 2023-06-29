@@ -1,5 +1,5 @@
 <?php if (have_rows('partners_cards')): ?>
-    <section id="section-partners" class="bg-white">
+    <section id="section-partners" class="moving-bg-bar">
         <div class="partners container pb-3 pb-lg-3 ">
             <div class="row ">
                 <div class="col-12">
@@ -21,7 +21,9 @@
                         </div>
                         <div class="col-12 col-sm-9 px-3">
                             <p class="text-center text-sm-start m-0">
-                                <?php the_sub_field('partners_cards_card_excerpt'); ?>
+                                <?php
+                                textToBlend(get_sub_field('partners_cards_card_excerpt'));
+                                ?>
                             </p>
                         </div>
                     </div>
@@ -29,21 +31,5 @@
             </div>
         </div>
     </section>
-    <script>
-        document.addEventListener('DOMContentLoaded',()=>{
-            new Splide('.partners-carousel .splide', {
-			arrows: false,
-			pagination: false,
-			type: 'loop',
-			drag: 'free',
-			focus: 'center',
-			perPage: 4,
-			gap: 20,
-			autoWidth: true,
-			autoScroll: {
-				speed: 0.5,
-			},
-		}).mount(window.splide.Extensions);
-        })
-    </script>
+
 <?php endif; ?>

@@ -24,6 +24,9 @@ h6,
 .text-gray {
     font-family: 'kreon';
     color: #515151;
+    span{
+        font-family: 'kreon';
+    }
 }
 
 h1 {
@@ -49,7 +52,7 @@ h3 {
 p {
     font-family: 'inter';
     padding: 0;
-    margin: 17px 0 0 0;
+    margin-bottom: 17px;
     font-family: Inter;
     line-height: 22px;
 }
@@ -69,6 +72,9 @@ a {
 
 .step-gradient {
     background: linear-gradient(90deg, rgba(247, 247, 247, 1) 0%, rgba(247, 247, 247, 1) 50%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 100%);
+    @media (max-width:992px) {
+        background: #fff;
+    }
 }
 
 nav#header {
@@ -106,13 +112,16 @@ nav#header {
     }
 
     .languages {
-
         p,
         span {
             font-family: 'kreon';
             font-size: 15px;
             font-weight: 400;
             line-height: 19px;
+            transition: .2s;
+            &:hover{
+                color:$secondary;
+            }
         }
     }
 }
@@ -334,7 +343,7 @@ p.motto-sign {
         &:before {
             content: '';
             position: absolute;
-            bottom: -3px;
+            bottom: 0;
             left: 0;
             right: 0;
             height: 5px;
@@ -440,6 +449,7 @@ p.motto-sign {
             bottom: -3px;
             border-top: 5px solid rgb(255, 255, 255);
             border-left: 5px solid rgb(255, 255, 255);
+            z-index:1;
         }
 
         &::after {
@@ -450,6 +460,7 @@ p.motto-sign {
             bottom: 0;
             border-bottom: 5px solid rgb(255, 255, 255);
             border-right: 5px solid rgb(255, 255, 255);
+            z-index:1;
         }
 
         .industries-card {
@@ -955,6 +966,7 @@ a.text-white:hover {
 
         &:hover {
             background-color: $secondary;
+            color:$white;
         }
     }
 
@@ -995,6 +1007,7 @@ a.text-white:hover {
 
         &:hover {
             background-color: $secondary;
+            color:$white;
         }
     }
 }
@@ -1021,6 +1034,9 @@ a.text-white:hover {
 
     .active {
         background-color: rgba($light, 0.5);
+        &:hover{
+            color:#000 !important;
+        }
     }
 }
 
@@ -1066,4 +1082,73 @@ a.text-white:hover {
 .consent-link{
     text-decoration: underline;
     color:#787878;
+}
+
+
+.page.content{
+    h1,h2,h3,h4,h5{
+        padding-top: 2 * $spacer;
+        padding-bottom: 2 * $spacer;
+    }
+    p{
+        margin:10px 0;
+        line-height: 20px;
+        font-size: 14px;
+    }
+}
+
+.blur{
+    display: inline-block;
+    opacity: 0;
+}
+
+.blur-in {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(4px);
+    animation: blur-in 1s 0s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.blend{
+    display: inline-block;
+    opacity: 0.1;
+}
+
+.blend-in {
+    display: inline-block;
+    opacity: 0.1;
+    animation: blend-in 0.2s 0s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+@keyframes blur-in {
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+@keyframes blend-in {
+    100% {
+        opacity: 1;
+    }
+}
+
+.moving-bg-bar{
+    background-image: linear-gradient(45deg, $secondary, $secondary);
+    background-position-x: 0;
+    background-position-y: bottom;
+    background-size: 0%;
+    background-repeat: no-repeat;
+}
+
+.post-card{
+    .post-thumbnail{
+        overflow: hidden;
+    }
+    img{
+        transition: .3s;
+    }
+    &:hover{
+        img{
+            transform: scale(1.1);
+        }
+    }
 }
