@@ -7,7 +7,7 @@
 get_header();
 ?>
 
-<section class="section-thank-you" id="section-thank-you">
+<section class="section-thank-you" id="section-thank-you" data-aos="zoom-in" data-aos-delay="300">
     <div class="container">
         <div class="row">
             <div class="col-12 col-6 d-flex flex-column justify-content-center align-items-center gap-4">

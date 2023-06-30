@@ -8,15 +8,13 @@ $query = new WP_Query($args);
 
 <?php
 if ($query->have_posts()) { ?>
-    <section class="news-carousel" id="section-news-carousel" style="
-    background-image: -webkit-gradient(linear,left top,left bottom,from(hsla(0,0%,84%,.2)),to(hsla(0,0%,100%,0))),-webkit-gradient(linear,left top,left bottom,from(#fff),to(#fff));
-    ">
+    <section data-aos="fade-up" data-aos-delay="300" class="news-carousel" id="section-news-carousel">
         <div class="container">
             <div class="row py-4">
                 <div class="col-12">
                     <h2 class="d-flex justify-content-between">
                         <span>
-                            <?= __('Aktualności', 'swiftbridge'); ?>
+                            <?= __('News', 'swiftbridge'); ?>
                         </span>
                         <?php
                         $news_archive_link = get_post_type_archive_link('news');
@@ -34,23 +32,25 @@ if ($query->have_posts()) { ?>
                         while ($query->have_posts()) {
                             $query->the_post();
                             ?>
-                            <li class="splide__slide news-card">
-                                <div class="news-card-img">
-                                    <?php the_post_thumbnail('full', ['class' => 'img-cover']); ?>
-                                </div>
-                                <p class="post-date">
-                                    <?php echo get_the_date(); ?>
-                                </p>
-                                <p class="title">
-                                    <?php echo get_the_title(); ?>
-                                </p>
-                                <p class="excerpt">
-                                    <?php echo get_the_excerpt(); ?>
-                                </p>
-                                <p class="author">
-                                    <?php echo __('Autor', 'swiftbridge') . ': ' . get_the_author(); ?>
-                                </p>
-                            </li>
+                                <li class="splide__slide">
+                                    <a class="news-card" title="<?php echo get_the_title(); ?>" href="<?php permalink_link(  ); ?>">
+                                    <div class="news-card-img">
+                                        <?php the_post_thumbnail('full', ['class' => 'img-cover']); ?>
+                                    </div>
+                                    <p class="post-date">
+                                        <?php the_date(); ?>
+                                    </p>
+                                    <p class="title">
+                                        <?php the_title(); ?>
+                                    </p>
+                                    <p class="excerpt">
+                                        <?php the_excerpt(); ?>
+                                    </p>
+                                    <p class="author">
+                                        <?php echo __('Autor', 'swiftbridge') . ': ' . get_the_author(); ?>
+                                    </p>
+                                </a>
+                                </li>
                             <?php
                             wp_reset_postdata();
                         }

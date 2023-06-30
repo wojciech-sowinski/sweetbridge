@@ -1,6 +1,7 @@
 <?php
 /**
  * The Template used to display Tag Archive pages.
+ * @author Wojciech Sowiński <wojciech.sowinski@innhouse.pl>
  */
 
 get_header();

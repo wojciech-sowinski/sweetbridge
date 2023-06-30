@@ -4,7 +4,6 @@
  */
 
 get_header();
-
 if (have_posts()):
 	?>
 	<header class="page-header container py-5">

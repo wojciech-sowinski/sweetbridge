@@ -1,12 +1,14 @@
 <?php
 /**
  * The Template for displaying all single service posts.
+ * Description: Page template
+ * @author Wojciech Sowiński <wojciech.sowinski@innhouse.pl>
  */
 get_header();
 the_post();
 ?>
 <section class="container">
-	<div class="row">
+	<div class="row d-flex flex-column-reverse flex-md-row">
 		<div class="col-12 col-md-6">
 			<?php the_title('<h1 class="py-3">', '</h1>'); ?>
 			<?php the_field('service_content'); ?>

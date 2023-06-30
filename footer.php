@@ -50,7 +50,7 @@
 							<span style="font-size:30px" class="icon-telephone"></span>
 							<div class="d-flex flex-column gap-2">
 								<span class="headline-font">
-									<?= __('Infolinia', 'swiftbridge') ?>
+									<?= __('Infoline', 'swiftbridge') ?>
 								</span>
 								<span style="font-size:14px; font-weight:500">
 									<a class="info-link" title="<?php the_field('footer_contact_tel', 'option'); ?>"
@@ -64,7 +64,7 @@
 							<span style="font-size:30px" class="icon-mail"></span>
 							<div class="d-flex flex-column gap-2">
 								<span class="headline-font">
-									<?= __('Adres e-mail', 'swiftbridge') ?>
+									<?= __('E-mail adress', 'swiftbridge') ?>
 								</span>
 								<span style="font-size:14px; font-weight:500">
 									<a class="info-link" 
@@ -78,7 +78,7 @@
 					</div>
 					<div class="offset-lg-2">
 						<a href="#" class="btn btn-light text-primary btn-sm">
-							<?= __('Skontaktuj się z nami', 'swiftbridge') ?>
+							<?= __('Contact us', 'swiftbridge') ?>
 						</a>
 					</div>
 
@@ -102,7 +102,7 @@
 				</div>
 				<div class="w-auto justify-content-center justify-content-md-start d-flex align-items-baseline gap-1">
 					<span>
-						<?= __('Wykonanie', 'swiftbridge'); ?>:
+						<?= __('Made by', 'swiftbridge'); ?>:
 					</span>
 					<a class="d-flex align-items-center" title="Innhouse" alt="InnHouse" href="https://innhouse.pl/">
 						<img class="innhouse-logo" title="Innhouse"

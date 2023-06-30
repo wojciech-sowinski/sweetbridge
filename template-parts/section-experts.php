@@ -1,11 +1,10 @@
 <?php $experts_logo = get_field('experts_logo'); ?>
-<?php $size = 'full'; ?>
-<section class="experts bg-white">
+<section class="experts bg-white" data-aos="fade-up" data-aos-delay="300">
     <div class="container">
         <div class="row d-flex flex-column gap-4">
             <?php if ($experts_logo): ?>
                 <div class="col-12 d-flex justify-content-center px-5">
-                    <?php echo wp_get_attachment_image($experts_logo, $size, false, ['class' => 'img-fluid']); ?>
+                    <?php echo wp_get_attachment_image($experts_logo, 'full', false, ['class' => 'img-fluid']); ?>
                 </div>
             <?php endif; ?>
             <?php
@@ -14,9 +13,7 @@
                 <div class="col-12 col-md-10 col-xl-8 pb-4 mx-auto">
                     <p class="experts-exc text-center">
                         <?php 
-                        
                         textToBlend(get_field('experts_excerpt')); 
-                        
                         ?>
                     </p>
                 </div>
@@ -35,9 +32,8 @@
                         class="col-12 col-lg-6 col-xl-4 d-flex flex-column gap-3 py-4 px-4 expert-card align-items-center align-items-xl-start">
                         <div class="d-flex justify-content-center justify-content-lg-start expert-img">
                             <?php $experts_cards_card_img = get_sub_field('experts_cards_card_img'); ?>
-                            <?php $size = 'full'; ?>
                             <?php if ($experts_cards_card_img): ?>
-                                <?php echo wp_get_attachment_image($experts_cards_card_img, $size, false, ['class' => 'rounded-circle img-cover']); ?>
+                                <?php echo wp_get_attachment_image($experts_cards_card_img, 'full', false, ['class' => 'rounded-circle img-cover']); ?>
                             <?php endif; ?>
                         </div>
                         <p class="fw-bolder text-center text-lg-start">
@@ -66,6 +62,5 @@
             </div>
         <?php endif; ?>
     </div>
-
 </section>
 

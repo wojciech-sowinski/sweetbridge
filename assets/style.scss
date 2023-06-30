@@ -24,7 +24,8 @@ h6,
 .text-gray {
     font-family: 'kreon';
     color: #515151;
-    span{
+
+    span {
         font-family: 'kreon';
     }
 }
@@ -72,6 +73,7 @@ a {
 
 .step-gradient {
     background: linear-gradient(90deg, rgba(247, 247, 247, 1) 0%, rgba(247, 247, 247, 1) 50%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 100%);
+
     @media (max-width:992px) {
         background: #fff;
     }
@@ -112,6 +114,7 @@ nav#header {
     }
 
     .languages {
+
         p,
         span {
             font-family: 'kreon';
@@ -119,8 +122,9 @@ nav#header {
             font-weight: 400;
             line-height: 19px;
             transition: .2s;
-            &:hover{
-                color:$secondary;
+
+            &:hover {
+                color: $secondary;
             }
         }
     }
@@ -133,6 +137,10 @@ a {
 .home_page_section_1 {
     .content {
         padding-top: 200px;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-position: center !important;
+        z-index: 1;
 
         @media (max-width:1200px) {
             padding-top: 100px;
@@ -145,6 +153,11 @@ a {
         @media (max-width:480px) {
             padding-top: 20px;
         }
+    }
+
+    .home-page-section-1-cards-card-text {
+        font-weight: 600;
+        font-size: 15px
     }
 }
 
@@ -160,6 +173,7 @@ a {
     border-radius: 30px;
     line-height: 30px;
     text-align: center;
+    transition: .2s;
 }
 
 
@@ -224,6 +238,7 @@ a {
         width: 48px;
         height: 48px;
         aspect-ratio: 1/1;
+
         img {
             width: 100%;
             height: 100%;
@@ -337,6 +352,8 @@ p.motto-sign {
 }
 
 .cards-bg {
+    overflow-x: hidden;
+
     .container {
         position: relative;
 
@@ -399,6 +416,10 @@ p.motto-sign {
 
     .banner {
         height: 340px;
+
+        @media (max-width:576px) {
+            height: 150px;
+        }
     }
 
     .services-motto {
@@ -449,7 +470,7 @@ p.motto-sign {
             bottom: -3px;
             border-top: 5px solid rgb(255, 255, 255);
             border-left: 5px solid rgb(255, 255, 255);
-            z-index:1;
+            z-index: 1;
         }
 
         &::after {
@@ -460,7 +481,7 @@ p.motto-sign {
             bottom: 0;
             border-bottom: 5px solid rgb(255, 255, 255);
             border-right: 5px solid rgb(255, 255, 255);
-            z-index:1;
+            z-index: 1;
         }
 
         .industries-card {
@@ -587,6 +608,18 @@ footer#footer {
 
     .news-card-img {
         height: 210px;
+        overflow: hidden;
+        img{
+            transition: .3s;
+        }
+    }
+
+    &:hover{
+        .news-card-img {
+            img{
+                transform: scale(1.1);
+            }
+        }
     }
 
 }
@@ -754,7 +787,7 @@ section.industries {
             position: absolute;
             top: 0;
             bottom: 0;
-            left: 0;
+            left: 1px;
             width: 50vw;
             height: 100%;
             transform: translateX(-100%);
@@ -896,6 +929,17 @@ section.industries {
     }
 }
 
+.contact-card {
+    a {
+        &:hover {
+            color: $secondary !important;
+            text-decoration: underline;
+        }
+    }
+}
+
+
+
 a.text-white:hover {
     color: $secondary !important;
     transition: .2s;
@@ -966,7 +1010,7 @@ a.text-white:hover {
 
         &:hover {
             background-color: $secondary;
-            color:$white;
+            color: $white;
         }
     }
 
@@ -986,7 +1030,7 @@ a.text-white:hover {
     &:before {
         content: '';
         position: absolute;
-        width: 50vw;
+        width: 100vw;
         height: 100%;
         right: 0;
         top: 0;
@@ -1007,7 +1051,7 @@ a.text-white:hover {
 
         &:hover {
             background-color: $secondary;
-            color:$white;
+            color: $white;
         }
     }
 }
@@ -1034,8 +1078,9 @@ a.text-white:hover {
 
     .active {
         background-color: rgba($light, 0.5);
-        &:hover{
-            color:#000 !important;
+
+        &:hover {
+            color: #000 !important;
         }
     }
 }
@@ -1066,6 +1111,10 @@ a.text-white:hover {
 .home_page_section_1 {
     h1 {
         font-size: 64px;
+
+        @media (max-width:576px) {
+            font-size: 40px;
+        }
     }
 }
 
@@ -1075,29 +1124,36 @@ a.text-white:hover {
     font-size: 14px;
 }
 
-.show-btn, .hide-btn{
-    font-size:14px;
+.show-btn,
+.hide-btn {
+    font-size: 14px;
 }
 
-.consent-link{
+.consent-link {
     text-decoration: underline;
-    color:#787878;
+    color: #787878;
 }
 
 
-.page.content{
-    h1,h2,h3,h4,h5{
+.page.content {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
         padding-top: 2 * $spacer;
         padding-bottom: 2 * $spacer;
     }
-    p{
-        margin:10px 0;
+
+    p {
+        margin: 10px 0;
         line-height: 20px;
         font-size: 14px;
     }
 }
 
-.blur{
+.blur {
     display: inline-block;
     opacity: 0;
 }
@@ -1109,7 +1165,7 @@ a.text-white:hover {
     animation: blur-in 1s 0s forwards cubic-bezier(0.11, 0, 0.5, 0);
 }
 
-.blend{
+.blend {
     display: inline-block;
     opacity: 0.1;
 }
@@ -1119,19 +1175,21 @@ a.text-white:hover {
     opacity: 0.1;
     animation: blend-in 0.2s 0s forwards cubic-bezier(0.11, 0, 0.5, 0);
 }
+
 @keyframes blur-in {
     100% {
         opacity: 1;
         filter: blur(0);
     }
 }
+
 @keyframes blend-in {
     100% {
         opacity: 1;
     }
 }
 
-.moving-bg-bar{
+.moving-bg-bar {
     background-image: linear-gradient(45deg, $secondary, $secondary);
     background-position-x: 0;
     background-position-y: bottom;
@@ -1139,16 +1197,76 @@ a.text-white:hover {
     background-repeat: no-repeat;
 }
 
-.post-card{
-    .post-thumbnail{
+.post-card {
+    .post-thumbnail {
         overflow: hidden;
     }
-    img{
+
+    img {
         transition: .3s;
     }
-    &:hover{
-        img{
+
+    &:hover {
+        img {
             transform: scale(1.1);
         }
     }
+}
+
+.back-button {
+    font-size: 30px;
+    color: #0F1729;
+}
+
+
+.section-our-services {
+    .cards {
+        @media (min-width:992px) {
+            &>a {
+
+                &:nth-of-type(1),
+                &:nth-of-type(2),
+                &:nth-of-type(3) {
+                    border-bottom: 1px solid #B6B6B6;
+                }
+
+                &:nth-of-type(1),
+                &:nth-of-type(2),
+                &:nth-of-type(4),
+                &:nth-of-type(5) {
+                    border-right: 1px solid #B6B6B6;
+                }
+            }
+        }
+    }
+}
+
+.news-carousel {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(hsla(0, 0%, 84%, .2)), to(hsla(0, 0%, 100%, 0))), -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
+}
+
+
+.content.error404::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10em;
+    text-align: center;
+    z-index: -1;
+    opacity: .2;
+    font-weight: 700;
+    line-height: 1em;
+
+}
+
+@media (max-width:792px) {
+    .content.error404::before {
+        font-size: 5em;
+    }
+}
+
+.content.error404 {
+    overflow: hidden;
+    min-height: 80vh;
 }

@@ -1,4 +1,4 @@
-<div class="d-flex flex-column gap-4 search-column py-5 px-4">
+<div class="d-flex flex-column gap-4 search-column py-5 px-4 mb-3">
     <div>
         <?php get_search_form(); ?>
     </div>

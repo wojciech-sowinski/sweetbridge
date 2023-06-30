@@ -1,15 +1,15 @@
-<section class="section-contact" id="section-contact">
+<section data-aos="fade-up" data-aos-delay="300" class="section-contact" id="section-contact">
     <div class="container">
         <div class="row">
             <?php if (have_rows('contact_cards')): ?>
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6 text-center text-md-start">
                     <?php if (get_field('contact_cards_first') == 1): ?>
                         <h1 class="py-4">
-                            <?= __('Kontakt', 'swiftbridge') ?>
+                            <?= __('Contact', 'swiftbridge') ?>
                         </h1>
                     <?php else: ?>
                         <h2 class="py-4">
-                            <?= __('Kontakt', 'swiftbridge') ?>
+                            <?= __('Contact', 'swiftbridge') ?>
                         </h2>
                     <?php endif; ?>
                     <div class="contact-cards d-flex flex-wrap pb-1 pb-lg-5">
@@ -115,9 +115,9 @@
                     </div>
                 </div>
             <?php endif; ?>
-            <div class="col-12 col-lg-6 px-1 ps-lg-5 pe-lg-2">
+            <div class="col-12 col-lg-6 px-3 px-md-1 ps-lg-5 pe-lg-2">
                 <h2 class="py-4">
-                    <?= __('Wypełnij formularz', 'swiftbridge') ?>
+                    <?= __('Fill in the form', 'swiftbridge') ?>
                 </h2>
                 <div class="contact-form">
                     <?= do_shortcode('[contact-form-7 id="260" title="contact-form"]') ?>

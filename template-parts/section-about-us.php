@@ -1,4 +1,4 @@
-<section class="home-page-about-us">
+<section class="home-page-about-us" data-aos="fade-up" data-aos-delay="300">
 	<div class="container px-3 d-flex flex-column gap-2 pb-5">
 		<div class="row ">
 			<div class="col-12 col-lg-11 offset-0 offset-lg-1">
@@ -13,17 +13,23 @@
 				<?php endif; ?>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-12 col-md-10 col-lg-8 offset-0 offset-lg-1">
-				<p>
-					<?php the_field('home_page_about_us_excerpt'); ?>
-				</p>
+		<?php
+		if (!empty(get_field('home_page_about_us_excerpt'))) {
+			?>
+			<div class="row">
+				<div class="col-12 col-md-10 col-lg-8 offset-0 offset-lg-1">
+					<p>
+						<?php the_field('home_page_about_us_excerpt'); ?>
+					</p>
+				</div>
 			</div>
-		</div>
+			<?php
+		}
+		?>
 	</div>
 	<div class="container-fluid position-relative">
-		<div class="position-absolute d-none d-lg-block primary-gradient col-6 d-lg-block"
-			style="z-index:2; height:100%; "></div>
+		<div class="position-absolute d-none d-lg-block primary-gradient col-6 d-lg-block h-100"
+			></div>
 		<div class="container ">
 			<div class="row">
 				<div class="d-flex col-12 col-lg-6 justify-content-center px-0 py-5 primary-gradient-lg"
@@ -51,7 +57,8 @@
 							?>
 							<?php while (have_rows('home_page_about_us_cards')):
 								the_row(); ?>
-								<div data-aos="flip-up" data-aos-duration="1000" data-aos-delay="<?= $aboutUsCardCounter+=200 ?>"
+								<div data-aos="flip-up" data-aos-duration="1000"
+									data-aos-delay="<?= $aboutUsCardCounter += 200 ?>"
 									class="col-12 col-sm-8 mx-auto col-md-6 pe-1 ps-0 py-3 ps-lg-3 py-lg-3 ps-xl-5 d-flex flex-column align-items-center align-items-md-start gap-1">
 									<div class="card-icon-mini d-flex ">
 										<?php $home_page_about_us_cards_card_img = get_sub_field('home_page_about_us_cards_card_img'); ?>

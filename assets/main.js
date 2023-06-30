@@ -77,47 +77,44 @@ function addBlendInClassToElements() {
 
 function adjustBackgroundSize() {
 	var element = document.querySelector('.moving-bg-bar');
-  
+
 	function handleScroll() {
 		var elementRect = element.getBoundingClientRect();
 		var windowHeight = window.innerHeight;
 		var elementTop = elementRect.bottom;
-	  var scrollPercentage = ((windowHeight - elementTop) / windowHeight) * 100;
-	  element.style.backgroundSize = (scrollPercentage) + '% 2px';
+		var scrollPercentage = ((windowHeight - elementTop) / windowHeight) * 100;
+		element.style.backgroundSize = (scrollPercentage) + '% 2px';
 	}
 	window.addEventListener('scroll', handleScroll);
-  }
-  
-  function addScaleTransformToBanner() {
+}
+
+function addScaleTransformToBanner() {
 	var banner = document.querySelector('.animate-banner');
 	var bannerImg = banner.querySelector('img');
-  
+
 	function calculatePositionPercentage() {
-	  var bannerRect = banner.getBoundingClientRect();
-	  var windowHeight = window.innerHeight;
-	  var bannerTop = bannerRect.top;
-  
-	  var positionPercentage = ((windowHeight - bannerTop) / windowHeight) * 100;
-	  return positionPercentage.toFixed(2); // Zaokrąglamy wynik do dwóch miejsc po przecinku
+		var bannerRect = banner.getBoundingClientRect();
+		var windowHeight = window.innerHeight;
+		var bannerTop = bannerRect.top;
+
+		var positionPercentage = ((windowHeight - bannerTop) / windowHeight) * 100;
+		return positionPercentage.toFixed(2); // Zaokrąglamy wynik do dwóch miejsc po przecinku
 	}
-  
+
 	function updateTransformScale() {
-	  var positionPercentage = calculatePositionPercentage();
-	  bannerImg.style.transform = 'scale(' + ((positionPercentage / 500) + 1) + ')';
+		var positionPercentage = calculatePositionPercentage();
+		bannerImg.style.transform = 'scale(' + ((positionPercentage / 500) + 1) + ')';
 	}
-  
+
 	// Wywołujemy funkcję aktualizacji transformacji przy załadowaniu strony i przy zmianie rozmiaru okna
 	updateTransformScale();
 	window.addEventListener('scroll', updateTransformScale);
-  }
-  
-  // Wywołanie funkcji
-  
-  
-  addEventListener("DOMContentLoaded", (event) => {
-	  AOS.init();
-	  addBlurInClassToElements();
-	  addBlendInClassToElements();
-	  adjustBackgroundSize();
-	  addScaleTransformToBanner();
+}
+
+addEventListener("DOMContentLoaded", (event) => {
+	AOS.init();
+	addBlurInClassToElements();
+	addBlendInClassToElements();
+	adjustBackgroundSize();
+	addScaleTransformToBanner();
 });

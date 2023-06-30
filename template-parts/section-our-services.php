@@ -1,4 +1,7 @@
-<section class="section-our-services" id="section-our-services">
+<section class="section-our-services" id="section-our-services" data-aos="fade-up" data-aos-delay="300"
+style="background-image: linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,1)), url(<?= the_field( 'or_services_bg' ); ?>);"
+>
+
     <div class="container">
         <div class="row py-3" data-aos="fade-up">
             <div class="col-12" >
@@ -11,10 +14,8 @@
                         <?php the_field('or_services_title'); ?>
                     </h2>
                 <?php endif; ?>
-
             </div>
         </div>
-
         <?php
         if (!empty(get_field('or_services_excerpt'))) {
             ?>
@@ -57,11 +58,9 @@
                 }
                 wp_reset_postdata();
             } else {
-                echo 'Brak postów do wyświetlenia.';
+                echo __('No posts found','swiftbridge');
             }
-
             ?>
-            
         </div>
         <?php
         if (!empty(get_field('or_services_motto'))) {

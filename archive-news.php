@@ -1,6 +1,7 @@
 <?php
 /**
- * The template for displaying the archive loop.
+ * The template for displaying the news-archive loop.
+ * @author Wojciech Sowiński <wojciech.sowinski@innhouse.pl>
  */
 get_header();
 ?>
@@ -102,7 +103,6 @@ get_header();
 			} else {
 				get_template_part( 'content', 'none' );
 			}
-			
 			?>
 			</div>
 			<div class="row p-3 mx-auto">
@@ -115,7 +115,6 @@ get_header();
 						'format' => '?newspage=%#%',
 						'prev_text' => __('Previous', 'swiftbridge'),
 						'next_text' => __('Next', 'swiftbridge'),
-						// 'type' => 'list',
 					)
 				);
 				echo '</div>';
@@ -125,7 +124,4 @@ get_header();
 	</div>
 </section>
 <?php
-
-
-
 get_footer();

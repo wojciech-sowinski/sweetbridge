@@ -2,9 +2,9 @@
 /**
  * Template Name: Page (Default)
  * Description: Page template with Sidebar on the left side.
- *
+ * @author Wojciech Sowiński <wojciech.sowinski@innhouse.pl>
  */
-
+ 
 get_header();
 
 the_post();
@@ -18,7 +18,6 @@ the_post();
 				</h1>
 				<?php
 				the_content();
-
 				?>
 			</div><!-- /.col -->
 		</div><!-- /.row -->

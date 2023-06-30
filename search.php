@@ -1,6 +1,7 @@
 <?php
 /**
  * The Template for displaying Search Results pages.
+ * @author Wojciech Sowiński <wojciech.sowinski@innhouse.pl>
  */
 
 get_header();

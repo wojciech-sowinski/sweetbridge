@@ -1,5 +1,5 @@
 <?php if (have_rows('industries_cards')): ?>
-		<section class="industries pb-3 pb-lg-5">
+		<section class="industries pb-3 pb-lg-5" data-aos="fade-up" data-aos-delay="300">
 			<div class="container">
 				<div class="row">
 					<div class="col-12 col-md-8 mx-auto px-3 py-5 p-md-5">

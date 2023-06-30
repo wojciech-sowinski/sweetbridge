@@ -1,6 +1,8 @@
 <?php
 /**
  * The Template for displaying Category Archive pages.
+ * Description: Page template
+ * @author Wojciech Sowiński <wojciech.sowinski@innhouse.pl>
  */
 
 get_header();

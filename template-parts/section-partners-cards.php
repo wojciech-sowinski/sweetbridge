@@ -1,5 +1,5 @@
 <?php if (have_rows('partners_cards')): ?>
-    <section id="section-partners" class="moving-bg-bar">
+    <section id="section-partners" class="moving-bg-bar" data-aos="fade-up" data-aos-delay="300">
         <div class="partners container pb-3 pb-lg-3 ">
             <div class="row ">
                 <div class="col-12">

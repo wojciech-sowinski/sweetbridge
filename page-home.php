@@ -6,18 +6,13 @@
  */
 
 get_header();
-
-the_post();
 ?>
 <section class="home_page_section_1 container-fluid position-relative px-0 pt-0 pb-5 step-gradient">
-	<div class="content col-12 col-xxl-11 position-absolute offset-0 offset-xxl-1 h-100" style="z-index:1;background: linear-gradient(0deg, rgba(43, 64, 180,
+	<div class="content col-12 col-xxl-11 position-absolute offset-0 offset-xxl-1 h-100" style="background: linear-gradient(0deg, rgba(43, 64, 180,
 					<?php the_field('home_page_section_1_opacity'); ?>
 				), rgba(43, 64, 180,
 					<?php the_field('home_page_section_1_opacity'); ?>
 				)), url(<?php echo the_field('home_page_section_1_opacity_bg_img'); ?>);
-				background-repeat:no-repeat;
-				background-size:cover;
-				background-position:center;
 		">
 	</div>
 	<div class="container content" style="z-index:100; position:relative">
@@ -72,7 +67,7 @@ the_post();
 								<?= get_row_index(); ?>
 							</span>
 						</div>
-						<p class="px-3 py-2 text-light" style="font-weight:600; font-size:15px">
+						<p class="px-3 py-2 text-light home-page-section-1-cards-card-text" >
 							<?php the_sub_field('home_page_section_1_cards_card_text'); ?>
 						</p>
 					</div>
@@ -82,7 +77,7 @@ the_post();
 	</div>
 </section>
 <?php if (have_rows('home_page_section_2_icon_cards')): ?>
-	<section class="home_page_section_2 container pt-0" data-aos="fade-up" data-aos-duration="1000">
+	<section class="home_page_section_2 container pt-0" data-aos="fade-up"  data-aos-delay="300" data-aos-duration="1000">
 		<div class="row step-gradient">
 			<?php while (have_rows('home_page_section_2_icon_cards')):
 				the_row(); ?>
@@ -98,7 +93,7 @@ the_post();
 							<?php endif; ?>
 						</div>
 						<p class="text-primary fw-bold">
-							<?php the_sub_field('tytul_kartyhome_page_section_2_icon_cards_card_title'); ?>
+							<?php the_sub_field('home_page_section_2_icon_cards_card_title'); ?>
 						</p>
 						<p>
 							<?php the_sub_field('home_page_section_2_icon_cards_card_text'); ?>
@@ -108,7 +103,7 @@ the_post();
 				} ?>
 			<?php endwhile; ?>
 			<?php if (have_rows('home_page_section_2_icon_cards')): ?>
-				<div class="col-12 col-lg-6 p-4 p-md-5 pb-0">
+				<div class="col-12 col-lg-6 px-4 py-5 p-md-5">
 					<section class="splide" aria-label="Splide Slider">
 						<div class="splide__track">
 							<ul class="splide__list ">
@@ -147,17 +142,16 @@ the_post();
 	<?php get_template_part('template-parts/section', 'bg-cards'); ?>
 	<?php get_template_part('template-parts/section', 'experts'); ?>
 
-	<section class="services bg-white pt-5" >
+	<section class="services bg-white pt-5" data-aos="fade-up">
 		<div class="banner animate-banner">
 			<?php $services_img = get_field('services_img'); ?>
-			<?php $size = 'full'; ?>
 			<?php if ($services_img): ?>
-				<?php echo wp_get_attachment_image($services_img, $size, false, ['class' => 'img-cover']); ?>
+				<?php echo wp_get_attachment_image($services_img, 'full', false, ['class' => 'img-cover']); ?>
 			<?php endif; ?>
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-12 col-lg-6 pt-6 pe-2 pe-lg-5 " data-aos="fade-right" data-aos-delay="1000" >
+				<div class="col-12 col-lg-6 pt-6 pb-3 ps-4 pe-4 pe-lg-5 " data-aos="fade-right" data-aos-delay="1000" >
 					<h2 class="pb-4 d-flex align-items-center justify-content-between">
 						<?php the_field('services_title'); ?>
 						<?php $services_url = get_field('services_url'); ?>

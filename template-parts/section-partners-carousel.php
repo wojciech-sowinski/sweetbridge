@@ -1,5 +1,5 @@
 <?php if (have_rows('partners_carousel_btns')): ?>
-    <section id="section-partners-carousel" class="partners-carousel container-fluid bg-white pb-5">
+    <section id="section-partners-carousel" class="partners-carousel container-fluid bg-white pb-5" data-aos="fade-up" data-aos-delay="300">
         <div class="container d-flex flex-column gap-4">
             <div class="row">
                 <div class="col-12">
