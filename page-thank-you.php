@@ -27,7 +27,7 @@ get_header();
 
                             <?php $than_you_page_btns_btn_url = get_sub_field('than_you_page_btns_btn_url'); ?>
                             <?php if ($than_you_page_btns_btn_url): ?>
-                                <a class="btn btn-primary" href="<?php echo esc_url($than_you_page_btns_btn_url); ?>"><?php the_sub_field('than_you_page_btns_btn_text'); ?></a>
+                                <a title="<?php the_sub_field('than_you_page_btns_btn_text'); ?>" class="btn btn-primary" href="<?php echo esc_url($than_you_page_btns_btn_url); ?>"><?php the_sub_field('than_you_page_btns_btn_text'); ?></a>
                             <?php endif; ?>
                         <?php endwhile; ?>
                     </div>

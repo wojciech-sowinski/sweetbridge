@@ -18,7 +18,7 @@
             $categoryCount = $category->count;
             ?>
 
-            <a class="d-block text-white  <?php
+            <a title="<?= $category->name ?>" class="d-block text-white  <?php
             if (single_cat_title('', false) == $category->name) {
                 echo 'active';
             }

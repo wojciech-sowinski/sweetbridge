@@ -264,8 +264,6 @@ a {
     }
 }
 
-
-
 .partner-button {
     border: 1px solid #DCDCDC;
     font-size: 18px;
@@ -413,10 +411,13 @@ p.motto-sign {
 
 .services {
     overflow-x: hidden;
-
+    
     .banner {
+        overflow: hidden;
         height: 340px;
-
+        img{
+            transition: .2s;
+        }
         @media (max-width:576px) {
             height: 150px;
         }
@@ -494,10 +495,10 @@ p.motto-sign {
 
             &:hover {
                 background-color: $gray-400;
-                color: $white;
+                // color: $white;
 
                 span {
-                    color: $white;
+                    // color: $white;
                 }
             }
 
@@ -609,14 +610,15 @@ footer#footer {
     .news-card-img {
         height: 210px;
         overflow: hidden;
-        img{
+
+        img {
             transition: .3s;
         }
     }
 
-    &:hover{
+    &:hover {
         .news-card-img {
-            img{
+            img {
                 transform: scale(1.1);
             }
         }
@@ -1167,12 +1169,12 @@ a.text-white:hover {
 
 .blend {
     display: inline-block;
-    opacity: 0.1;
+    opacity: 0.2;
 }
 
 .blend-in {
     display: inline-block;
-    opacity: 0.1;
+    opacity: 0.2;
     animation: blend-in 0.2s 0s forwards cubic-bezier(0.11, 0, 0.5, 0);
 }
 
@@ -1195,6 +1197,7 @@ a.text-white:hover {
     background-position-y: bottom;
     background-size: 0%;
     background-repeat: no-repeat;
+    transition: all 0.2s ease 0s;
 }
 
 .post-card {
@@ -1245,7 +1248,6 @@ a.text-white:hover {
     background-image: -webkit-gradient(linear, left top, left bottom, from(hsla(0, 0%, 84%, .2)), to(hsla(0, 0%, 100%, 0))), -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
 }
 
-
 .content.error404::before {
     position: absolute;
     top: 50%;
@@ -1269,4 +1271,19 @@ a.text-white:hover {
 .content.error404 {
     overflow: hidden;
     min-height: 80vh;
+}
+
+.navbar-toggler {
+    border: 0px solid rgba(0, 0, 0, 0) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+nav#header .navbar-brand img {
+    object-fit: contain;
+}
+
+.wpcf7-spinner{
+    aspect-ratio: 1/1;
+    object-fit: contain;
 }

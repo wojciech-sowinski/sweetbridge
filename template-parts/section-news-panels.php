@@ -14,7 +14,7 @@ if ($query->have_posts()) {
 			<div <?php post_class($post_classes); ?>>
 
 				<?php if ($counter != 1) {
-					echo '<a href="' . get_permalink() . '">';
+					echo '<a title="'.the_title().'" href="' . get_permalink() . '">';
 				} ?>
 				<?php
 				if ($counter == 1) {
@@ -48,7 +48,7 @@ if ($query->have_posts()) {
 					if ($counter == 1) {
 						?>
 						<div>
-							<a href="<?php the_permalink(); ?>" class="btn btn-primary"><?= __('Read more', 'swiftbridge'); ?></a>
+							<a title="<?= __('Read more', 'swiftbridge'); ?>" href="<?php the_permalink(); ?>" class="btn btn-primary"><?= __('Read more', 'swiftbridge'); ?></a>
 						</div>
 						<?php
 					}

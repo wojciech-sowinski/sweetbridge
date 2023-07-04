@@ -45,7 +45,7 @@ get_header();
 						?>
 						<div <?php post_class($post_classes); ?>>
 							<?php if ($counter != 1) {
-								echo '<a href="' . get_permalink() . '">';
+								echo '<a title="'.get_the_title().'" href="' . get_permalink() . '">';
 							} ?>
 							<?php
 							if ($counter == 1) {
@@ -79,7 +79,7 @@ get_header();
 								<?php
 								if ($counter == 1) {
 									?>
-									<a href="<?php the_permalink(); ?>" class="btn btn-primary"><?= __('Read more', 'swiftbridge'); ?></a>
+									<a title="<?= __('Read more', 'swiftbridge'); ?>" href="<?php the_permalink(); ?>" class="btn btn-primary"><?= __('Read more', 'swiftbridge'); ?></a>
 									<?php
 								}
 								?>

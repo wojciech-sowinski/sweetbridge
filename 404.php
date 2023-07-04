@@ -29,7 +29,7 @@ $search_enabled = get_theme_mod( 'search_enabled', '1' ); // Get custom meta-val
 		</div>
 	</div><!-- /.entry-content -->
 	<div class=" my-3">
-		<a href="<?= esc_url(site_url()); ?>" class="btn btn-primary">
+		<a title="Return to home page" href="<?= esc_url(site_url()); ?>" class="btn btn-primary">
 			<?= __('Return to home page','swiftbridge') ?>
 		</a>
 	</div>

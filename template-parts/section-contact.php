@@ -68,7 +68,7 @@
                                                         break;
                                                     case '2':
                                                         ?>
-                                                        <a href="mailto:<?php the_sub_field('contact_cards_card_lines_line_text'); ?>">
+                                                        <a title="<?php the_sub_field('contact_cards_card_lines_line_text'); ?>" href="mailto:<?php the_sub_field('contact_cards_card_lines_line_text'); ?>">
                                                             <div>
                                                                 <?php
                                                                 if (!empty($icon)) {
@@ -87,7 +87,7 @@
                                                         break;
                                                     case '3':
                                                         ?>
-                                                        <a href="tel:<?php the_sub_field('contact_cards_card_lines_line_text'); ?>">
+                                                        <a title="<?php the_sub_field('contact_cards_card_lines_line_text'); ?>" href="tel:<?php the_sub_field('contact_cards_card_lines_line_text'); ?>">
                                                             <div>
                                                                 <?php
                                                                 if (!empty($icon)) {

@@ -619,3 +619,4 @@ function textToBlend($text)
 		echo "<span class='blend' style='animation-delay:".$time."s;'>$word</span> ";
 	}
 }
+

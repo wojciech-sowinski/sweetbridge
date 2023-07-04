@@ -11,9 +11,9 @@ $referer = wp_get_referer();
 		<div class="col-1 offset-1 d-none d-lg-block text-center">
 			<?php
 			if ($referer) {
-				echo '<a title="Back" class="back-button" href="' . $referer . '"><i class="icon-arrow-left"></i></a>';
+				echo '<a title="'.__('Back', 'swiftbridge').'" class="back-button" href="' . $referer . '"><i class="icon-arrow-left"></i></a>';
 			} else {
-				echo '<a title="Back" class="back-button" href="' . home_url() . '"><i class="icon-arrow-left"></i></a>';
+				echo '<a title="'.__('Back', 'swiftbridge').'" class="back-button" href="' . home_url() . '"><i class="icon-arrow-left"></i></a>';
 			}
 			?>
 		</div>

@@ -74,7 +74,7 @@ get_header();
 									if ($counter == 1) {
 										?>
 										<div>
-											<a href="<?php the_permalink(); ?>" class="btn btn-primary"><?= __('Read more', 'swiftbridge'); ?></a>
+											<a title="<?= __('Read more', 'swiftbridge'); ?>" href="<?php the_permalink(); ?>" class="btn btn-primary"><?= __('Read more', 'swiftbridge'); ?></a>
 										</div>
 										<?php
 									}

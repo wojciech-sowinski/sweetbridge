@@ -20,7 +20,7 @@ $search_enabled = get_theme_mod('search_enabled', '1'); // Get custom meta-value
 	</a>
 	<div id="wrapper">
 		<header>
-			<nav id="header" class="step-gradient py-1 py-lg-5 navbar navbar-expand-lg <?php echo esc_attr($navbar_scheme);
+			<nav id="header" class="step-gradient py-1 py-lg-4 navbar navbar-expand-lg <?php echo esc_attr($navbar_scheme);
 			if (isset($navbar_position) && 'fixed_top' === $navbar_position): echo ' fixed-top';
 			elseif (isset($navbar_position) && 'fixed_bottom' === $navbar_position):
 				echo ' fixed-bottom';

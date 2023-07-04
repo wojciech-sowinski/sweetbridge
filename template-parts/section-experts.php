@@ -28,7 +28,7 @@
                 <?php while (have_rows('experts_cards')):
                     the_row(); ?>
                     <div
-                    data-aos="flip-up" data-aos-duration="1000" data-aos-delay="<?= $expertsCardDelay+=500 ?>"
+                    data-aos="fade-up" data-aos-duration="1000" data-aos-delay="<?= $expertsCardDelay+=500 ?>"
                         class="col-12 col-lg-6 col-xl-4 d-flex flex-column gap-3 py-4 px-4 expert-card align-items-center align-items-xl-start">
                         <div class="d-flex justify-content-center justify-content-lg-start expert-img">
                             <?php $experts_cards_card_img = get_sub_field('experts_cards_card_img'); ?>

@@ -1,18 +1,24 @@
 <section class="home-page-about-us" data-aos="fade-up" data-aos-delay="300">
 	<div class="container px-3 d-flex flex-column gap-2 pb-5">
-		<div class="row ">
-			<div class="col-12 col-lg-11 offset-0 offset-lg-1">
-				<?php if (get_field('about_us_first') == 1): ?>
-					<h1>
-						<?php the_field('home_page_about_us_title'); ?>
-					</h1>
-				<?php else: ?>
-					<h2>
-						<?php the_field('home_page_about_us_title'); ?>
-					</h2>
-				<?php endif; ?>
+		<?php
+		if (!empty(get_field('home_page_about_us_title'))) {
+			?>
+			<div class="row ">
+				<div class="col-12 col-lg-11 offset-0 offset-lg-1">
+					<?php if (get_field('about_us_first') == 1): ?>
+						<h1>
+							<?php the_field('home_page_about_us_title'); ?>
+						</h1>
+					<?php else: ?>
+						<h2>
+							<?php the_field('home_page_about_us_title'); ?>
+						</h2>
+					<?php endif; ?>
+				</div>
 			</div>
-		</div>
+			<?php
+		}
+		?>
 		<?php
 		if (!empty(get_field('home_page_about_us_excerpt'))) {
 			?>
@@ -28,8 +34,7 @@
 		?>
 	</div>
 	<div class="container-fluid position-relative">
-		<div class="position-absolute d-none d-lg-block primary-gradient col-6 d-lg-block h-100"
-			></div>
+		<div class="position-absolute d-none d-lg-block primary-gradient col-6 d-lg-block h-100"></div>
 		<div class="container ">
 			<div class="row">
 				<div class="d-flex col-12 col-lg-6 justify-content-center px-0 py-5 primary-gradient-lg"

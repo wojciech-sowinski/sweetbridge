@@ -11,9 +11,9 @@ $referer = wp_get_referer();
 		<div class="col-1 offset-1 d-none d-lg-block text-center">
 			<?php
 			if ($referer) {
-				echo '<a title="Back" class="back-button" href="' . $referer . '"><i class="icon-arrow-left"></i></a>';
+				echo '<a title="'.__('Back', 'swiftbridge').'" class="back-button" href="' . $referer . '"><i class="icon-arrow-left"></i></a>';
 			} else {
-				echo '<a title="Back" class="back-button" href="' . home_url() . '"><i class="icon-arrow-left"></i></a>';
+				echo '<a title="'.__('Back', 'swiftbridge').'" class="back-button" href="' . home_url() . '"><i class="icon-arrow-left"></i></a>';
 			}
 			?>
 		</div>
@@ -28,9 +28,9 @@ $referer = wp_get_referer();
 				</div>
 			</div>
 			<div class="d-flex gap-3">
-				<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank"
+				<a title="<?= __('Share on Facebook', 'swiftbridge'); ?>" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank"
 					rel="noopener noreferrer"><span class="icon-facebook social-icon-primary"></span></a>
-				<a href="https://www.linkedin.com/shareArticle?url=<?php the_permalink(); ?>" target="_blank"
+				<a title="<?= __('Share on LinkedIn', 'swiftbridge'); ?>" href="https://www.linkedin.com/shareArticle?url=<?php the_permalink(); ?>" target="_blank"
 					rel="noopener noreferrer"><span class="icon-in social-icon-primary"></span></a>
 				<?php
 				$date = get_the_date('j F Y');

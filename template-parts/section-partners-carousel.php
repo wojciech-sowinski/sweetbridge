@@ -15,11 +15,9 @@
                             <?php while (have_rows('partners_carousel_btns')):
                                 the_row(); ?>
                                 <li class="splide__slide">
-                                    <a class="btn partner-button"
-                                        title="<?php the_sub_field('partners_carousel_btns_btn_text'); ?>"
-                                        href="<?php the_sub_field('partners_carousel_btns_btn_url'); ?>">
+                                    <span class="btn partner-button">
                                         <?php the_sub_field('partners_carousel_btns_btn_text'); ?>
-                                    </a>
+                                    </span>
                                 </li>
                             <?php endwhile; ?>
                         </ul>

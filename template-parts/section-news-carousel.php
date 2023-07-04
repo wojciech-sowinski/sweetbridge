@@ -1,7 +1,7 @@
 <?php
 $args = array(
     'post_type' => 'news',
-    'posts_per_page' => -1, // Wyświetl wszystkie posty typu "news"
+    'posts_per_page' => 9, 
 );
 $query = new WP_Query($args);
 ?>

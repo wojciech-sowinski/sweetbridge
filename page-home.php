@@ -31,7 +31,7 @@ get_header();
 					?>
 					<?php while (have_rows('home_page_section_1_btns')):
 						the_row(); ?>
-						<a data-aos="flip-up" data-aos-duration="500" data-aos-delay="<?= $btnsCounter+=200 ?>"  href="<?php the_sub_field('home_page_section_1_btns_btn_url'); ?>"
+						<a title="<?php the_sub_field('home_page_section_1_btns_btn_text'); ?>" data-aos="flip-up" data-aos-duration="500" data-aos-delay="<?= $btnsCounter+=200 ?>"  href="<?php the_sub_field('home_page_section_1_btns_btn_url'); ?>"
 							class="btn btn-light text-primary">
 							<?php the_sub_field('home_page_section_1_btns_btn_text'); ?>
 						</a>
@@ -156,7 +156,7 @@ get_header();
 						<?php the_field('services_title'); ?>
 						<?php $services_url = get_field('services_url'); ?>
 						<?php if ($services_url): ?>
-							<a href="<?php echo esc_url($services_url); ?>"><span class="icon-arrow-right"></span></a>
+							<a title="<?= __('Read more', 'swiftbridge'); ?>" href="<?php echo esc_url($services_url); ?>"><span class="icon-arrow-right"></span></a>
 						<?php endif; ?>
 					</h2>
 					<div>

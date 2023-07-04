@@ -77,7 +77,7 @@
 						</div>
 					</div>
 					<div class="offset-lg-2">
-						<a href="#" class="btn btn-light text-primary btn-sm">
+						<a title="<?= __('Contact us', 'swiftbridge') ?>" href="#" class="btn btn-light text-primary btn-sm">
 							<?= __('Contact us', 'swiftbridge') ?>
 						</a>
 					</div>
